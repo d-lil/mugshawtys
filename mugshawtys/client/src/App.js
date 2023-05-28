@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Settings from './pages/Settings';
 import Navbar from './components/Navbar';
 import { 
   ApolloProvider, 
@@ -42,10 +43,10 @@ function App() {
               path='/' 
               element={<Home />} 
             />
-            {/* <Route 
-              path='/whatever' 
-              element={<Whatever />} 
-            /> */}
+            <Route 
+              path='/settings' 
+              element={<Settings />} 
+            />
             <Route 
               path='*'
               element={<h1 className='display-2'>Wrong page!</h1>}

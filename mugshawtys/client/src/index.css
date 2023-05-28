@@ -16,3 +16,12 @@ body {
     font-style: italic;
   }
   
+  #label {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .checkbox {
+    vertical-align: middle;
+    color: black
+  }
