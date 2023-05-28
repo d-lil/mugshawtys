@@ -21,10 +21,8 @@ const Home = () => {
         <Container>
           <h1>Felonious Feelings</h1>
             <Row>
-              <Col xs={12} md={8}>
-                <Card>
+              <Col>
                     <p>LOL HI</p>
-                </Card>
               </Col>
             </Row>
         </Container>

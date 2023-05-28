@@ -25,3 +25,43 @@ export const ADD_USER = gql`
         }
 
 `;
+
+export const UPDATE_USER = gql`
+    mutation updateUser($preferences: String, $about: String) {
+        updateUser(preferences: $preferences, about: $about) {
+            preferences
+            about
+        }
+    }
+`;
+
+export const SAVE_INMATE = gql`
+    mutation saveInmate($input: InmateInput) {
+        saveInmate(input: $input) {
+            _id
+            username
+            email
+            savedInmates {
+                inmateId
+                name
+                image
+            }
+        }
+    }
+`;
+
+export const REMOVE_INMATE = gql`
+    mutation removeInmate($inmateId: ID!) {
+        removeInmate(inmateId: $inmateId) {
+            _id
+            username
+            email
+            savedInmates {
+                inmateId
+                name
+                image
+            }
+        }
+    }
+`;
+

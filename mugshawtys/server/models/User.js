@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const inmateSchema = require('./Inmate');
 
 const userSchema = new Schema(
   {
@@ -18,6 +19,15 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    preferences: {
+      type: String,
+      required: false,
+    },
+    about: {
+      type: String,
+      required: false,
+    },
+    savedInmates: [inmateSchema],
   },
   // uncomment this if we want to use virtuals
   // set this to use virtual below
