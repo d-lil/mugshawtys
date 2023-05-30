@@ -49,18 +49,24 @@
     color: #fff;
   }
   
+
+/* NEED TO FIX THE ALIGNMENT OF THIS */
   .swipe {
     position: absolute;
+    left: 50%;
+    right: 50%;
   }
   
+
   .cardContainer {
+    position: relative;
+    justify-content: center;
     width: 90vw;
     max-width: 260px;
     height: 300px;
   }
   
   .card {
-    position: relative;
     background-color: #fff;
     width: 80vw;
     max-width: 260px;
@@ -100,6 +106,7 @@
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   
   @media (max-width: 625px) {

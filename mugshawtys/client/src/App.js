@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Settings from './pages/Settings';
 import Navbar from './components/Navbar';
-import Card from './components/Card';
 import { 
   ApolloProvider, 
   ApolloClient, 
@@ -11,7 +10,7 @@ import {
   createHttpLink
  } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
+// import CardComp from './components/Card';
 
 
 const httpLink = createHttpLink({
@@ -53,9 +52,10 @@ function App() {
               element={<h1 className='display-2'>Wrong page!</h1>}
             />
           </Routes>
+          {/* <CardComp />   */}
         </>
-      </Router>
-      <Card />
+      </Router> 
+         
     </ApolloProvider>
   );
 }

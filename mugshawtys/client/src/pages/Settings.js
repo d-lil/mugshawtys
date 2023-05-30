@@ -55,8 +55,8 @@ const SettingsForm = () => {
           <Form.Label htmlFor='preferences' id='label' >Preferences</Form.Label>
           <p>Please Select One</p>
             <select name='preferences' onSubmit={handleInputChange} value={userFormData.preferences}>
-              <option name='male' value='male'>Male</option>
-              <option name='female' value='female'>Female</option>
+              <option name='male' value='male'>Felonious Fellas (M)</option>
+              <option name='female' value='female'>Miss Demeanors (F)</option>
               <option name='both' value='both'>Both</option>
             </select>
         </Form.Group>

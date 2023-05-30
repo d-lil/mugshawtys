@@ -1,5 +1,6 @@
 body {
     font-family: 'Rubik', sans-serif;
+    display: flex;
   }
   
   h1,
@@ -21,7 +22,10 @@ body {
     font-weight: 500;
   }
 
-  .checkbox {
-    vertical-align: middle;
-    color: black
-  }
+.nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: auto;
+}
