@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Settings from './pages/Settings';
 import Navbar from './components/Navbar';
+import Card from './components/Card';
 import { 
   ApolloProvider, 
   ApolloClient, 
@@ -54,6 +55,7 @@ function App() {
           </Routes>
         </>
       </Router>
+      <Card />
     </ApolloProvider>
   );
 }

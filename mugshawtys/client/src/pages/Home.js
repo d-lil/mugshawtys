@@ -5,29 +5,26 @@ import {
   Form,
   Button,
   Card,
-  Row
+  Row,
 } from 'react-bootstrap';
-// import { useMutation } from '@apollo/client';
-// import Auth from '../utils/auth';
 
 const Home = () => {
   // create state for holding returned google api data
  
   
-
   return (
     <>
-      <div className="text-light bg-dark p-5">
-        <Container>
-          <h1>Felonious Feelings</h1>
-            <Row>
-              <Col>
-                    <p>LOL HI</p>
-              </Col>
-            </Row>
-        </Container>
-      </div>
-    </>
+    <div className="text-light bg-dark p-5">
+      <Container>
+        <h1>Felonious Feelings</h1>
+          <Row>
+            <Col>
+                  <p>LOL HI</p>
+            </Col>
+          </Row>
+      </Container>
+    </div>
+  </>
   );
 };
 
