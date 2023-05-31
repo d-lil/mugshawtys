@@ -10,7 +10,7 @@ import {
   createHttpLink
  } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
+// import CardComp from './components/Card';
 
 
 const httpLink = createHttpLink({
@@ -52,8 +52,10 @@ function App() {
               element={<h1 className='display-2'>Wrong page!</h1>}
             />
           </Routes>
+          {/* <CardComp />   */}
         </>
-      </Router>
+      </Router> 
+         
     </ApolloProvider>
   );
 }
