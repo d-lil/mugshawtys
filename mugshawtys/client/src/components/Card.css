@@ -45,7 +45,7 @@
     text-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
   }
   
-  h2 {
+  h6 {
     color: #fff;
   }
   
@@ -61,16 +61,18 @@
   .cardContainer {
     position: relative;
     justify-content: center;
+    align-items: center;
+    display: flex;
     width: 90vw;
     max-width: 260px;
-    height: 300px;
+    height: 400px;
   }
   
   .card {
     background-color: #fff;
     width: 80vw;
     max-width: 260px;
-    height: 300px;
+    height: 400px;
     box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
     border-radius: 20px;
     background-size: cover;
@@ -82,8 +84,20 @@
     height: 100%;
   }
   
-  .swipe:last-of-type {
-  
+  .swipe {
+    cursor: move; 
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+  }
+
+  .swipe:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+   }
+  .cardDiv {
+   
   }
   
   .card h3 {
@@ -113,6 +127,17 @@
     .buttons {
       flex-direction: column;
     }
+    .swipe {
+        position: absolute;
+        left: 10px;
+        right: 0;
+    }
+    .cardContainer {
+        height: 300px;
+    }
+    .card {
+        height: 300px;
+    }
   }
   
   .buttons button {
@@ -122,11 +147,11 @@
     border: none;
     color: #fff;
     font-size: 18px;
-    background-color: #9198e5;
+    background-color: #f56709;
     transition: 200ms;
     margin: 10px;
     font-weight: bolder;
-    width: 160px;
+    width: 140px;
     box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.10);
   }
   

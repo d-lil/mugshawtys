@@ -74,7 +74,7 @@ function Card () {
   }
 
   return (
-    <div>
+    <div className='cardDiv'>
       <link
         href='https://fonts.googleapis.com/css?family=Damion&display=swap'
         rel='stylesheet'
@@ -108,13 +108,13 @@ function Card () {
         <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>Swipe right!</button>
       </div>
       {lastDirection ? (
-        <h2 key={lastDirection} className='infoText'>
+        <h6 key={lastDirection} className='infoText'>
           You swiped {lastDirection}
-        </h2>
+        </h6>
       ) : (
-        <h2 className='infoText'>
-          Swipe a card or press a button to get Restore Card button visible!
-        </h2>
+        <h6 className='infoText'>
+          You can only undo once you have swiped!
+        </h6>
       )}
     </div>
   )

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+import { Navbar, Nav, Modal, Tab, NavDropdown } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
-import Settings from '../pages/Settings';
 
 import Auth from '../utils/auth';
 
@@ -14,24 +13,23 @@ const AppNavbar = () => {
   return (
     <>
       <Navbar bg='dark' variant='dark' expand='lg' className='nav'>
-        <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            Felonious Feelings
+        <div className="d-flex flex-nowrap w-100">
+          <Navbar.Brand as={Link} to='/' className="d-flex justify-content-start">
+            Babes Behind Bars
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='navbar' />
-          <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
+          <Navbar.Collapse className='d-flex justify-content-end'>
             <Nav className='ml-auto d-flex'>
               {Auth.loggedIn() ? (
-                <>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-                  <Nav.Link as={Link} to='/settings'>Settings</Nav.Link>
-                </>
+                <NavDropdown title="🏃‍♂️💨🚓">
+                  <NavDropdown.Item as={Link} to='/settings'>Settings</NavDropdown.Item>
+                  <NavDropdown.Item onClick={Auth.logout}>Logout</NavDropdown.Item>                  
+                </NavDropdown>
               ) : (
                   <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
-        </Container>
+        </div>
       </Navbar>
       {/* set modal data up */}
       <Modal
