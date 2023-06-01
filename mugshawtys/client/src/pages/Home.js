@@ -9,6 +9,8 @@ import {
 } from 'react-bootstrap';
 import CardComp from '../components/Card';
 // import User from '../utils/User';
+import Auth from '../utils/auth';
+import hearthands from '.././components/images/hearthands.png';
 
 const searchInmates = (query) => {
   return fetch(`http://www.JailBase.com/api/1/recent/?source_id=${query}`);
@@ -45,9 +47,15 @@ const Home = () => {
     <>
     
       <Container>
+        {Auth.loggedIn() ? ( 
           <CardComp />
-      </Container>
- 
+          ) : (
+            <div>
+              <h1 className="title">Sign up or login to start matching!</h1>
+                <img src={hearthands} alt='hearthands' className="heart" />
+            </div>
+              )}
+      </Container>        
   </>
   );
 };

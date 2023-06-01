@@ -14,7 +14,7 @@ const AppNavbar = () => {
     <>
       <Navbar bg='dark' variant='dark' expand='lg' className='nav'>
         <div className="d-flex flex-nowrap w-100">
-          <Navbar.Brand as={Link} to='/' className="d-flex justify-content-start">
+          <Navbar.Brand as={Link} to='/' className="d-flex justify-content-start title">
             Babes Behind Bars
           </Navbar.Brand>
           <Navbar.Collapse className='d-flex justify-content-end'>
