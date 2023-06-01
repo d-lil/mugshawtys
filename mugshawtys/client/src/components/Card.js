@@ -83,7 +83,6 @@ function Card () {
         href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
         rel='stylesheet'
       />
-      <h1>Babes Behind Bars</h1>
       <div className='cardContainer'>
         {db.map((character, index) => (
           <TinderCard
