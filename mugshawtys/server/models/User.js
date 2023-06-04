@@ -7,17 +7,30 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: true,
     },
     email: {
       type: String,
-      required: true,
+      required: false,
       unique: true,
       match: [/.+@.+\..+/, 'Must use a valid email address'],
+      index: { unique: false },
+      default: null,
     },
     password: {
       type: String,
-      required: true,
+      required: false,
+    },
+    image: {
+      type: String,
+      required: false,
+    },
+    gender: {
+      type: String,
+      required: false,
+    },
+    age: {
+      type: String,
+      required: false,
     },
     preferences: {
       type: String,
@@ -29,13 +42,11 @@ const userSchema = new Schema(
     },
     savedInmates: [inmateSchema],
   },
-  // uncomment this if we want to use virtuals
-  // set this to use virtual below
-  // {
-  //   toJSON: {
-  //     virtuals: true,
-  //   },
-  // }
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
 );
 
 // hash user password

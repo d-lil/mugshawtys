@@ -3,15 +3,17 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
+import { parse } from 'graphql';
 
 const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', age: '', gender: ''  });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
   const [createUser, { error, data }] = useMutation(ADD_USER);
+  
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -20,7 +22,6 @@ const SignupForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -29,12 +30,13 @@ const SignupForm = () => {
     }
 
     try {
+      
       const { data } = await createUser({
         variables: { ...userFormData },
         });
-
       Auth.login(data.addUser.token);
     } catch (err) {
+      console.log(userFormData)
       console.error(err);
     }
 
@@ -42,8 +44,13 @@ const SignupForm = () => {
       username: '',
       email: '',
       password: '',
+      age: '',
+      gender: '',
+      
     });
   };
+
+
 
   return (
     <>
@@ -56,7 +63,8 @@ const SignupForm = () => {
 
         <Form.Group className='mb-3'>
           <Form.Label htmlFor='username'>Username</Form.Label>
-          <Form.Control
+          <br></br>
+          <input
             type='text'
             placeholder='Your username'
             name='username'
@@ -64,12 +72,12 @@ const SignupForm = () => {
             value={userFormData.username}
             required
           />
-          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3'>
           <Form.Label htmlFor='email'>Email</Form.Label>
-          <Form.Control
+          <br></br>
+          <input
             type='email'
             placeholder='Your email address'
             name='email'
@@ -77,12 +85,12 @@ const SignupForm = () => {
             value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3'>
           <Form.Label htmlFor='password'>Password</Form.Label>
-          <Form.Control
+          <br></br>
+          <input
             type='password'
             placeholder='Your password'
             name='password'
@@ -90,8 +98,23 @@ const SignupForm = () => {
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
+      
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor='age'>Your Age</Form.Label>
+          <br></br>
+          <input type="number" value={userFormData.age} name="age" onChange={handleInputChange} />
+        </Form.Group>
+        
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor='gender'>Gender</Form.Label>
+          <br></br>
+            <select name='gender' onChange={handleInputChange} required>
+              <option name='male' value='male'>Male</option>
+              <option name='female' value='female'>Female</option>
+            </select>
+        </Form.Group>
+
         <Button
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'

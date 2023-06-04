@@ -6,6 +6,9 @@ export const QUERY_ME = gql`
             _id
             username
             email
+            image
+            gender
+            age
             preferences
             about
             savedInmates {
@@ -16,3 +19,17 @@ export const QUERY_ME = gql`
         }
     },
 `;
+
+export const QUERY_INMATES = gql`
+    query inmates {
+        inmates {
+            _id
+            username
+            image
+            gender
+            age
+            about
+        }
+    }
+`;
+
