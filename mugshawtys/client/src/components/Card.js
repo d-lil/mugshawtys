@@ -1,6 +1,10 @@
-import React, { useState, useMemo, useRef } from 'react'
+import React, { useState, useMemo, useRef, useEffect } from 'react'
 import TinderCard from 'react-tinder-card'
 import './Card.css'
+import { useQuery, useMutation } from '@apollo/client'
+import { QUERY_INMATES } from '../utils/queries'
+import { SAVE_INMATE } from '../utils/mutations'
+import { saveInmateIds, removeInmateId, getSavedInmateIds } from '../utils/localStorage'
 
 const db = [
   {
@@ -20,8 +24,48 @@ const db = [
     url: 'https://i.insider.com/536a4500ecad042454b1a77a?width=1018&format=jpeg'
   }
 ]
-
+// const preferences = "male"
 function Card () {
+  const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_INMATES)
+  // const [db, setDb] = useState([])
+  // const [saveInmateIds, setSavedInmateIds] = useState(getSavedInmateIds())
+  // const [saveInmate, { error }] = useMutation(SAVE_INMATE)
+  // useEffect(() => {
+  //   return () => saveInmateIds(saveInmateIds)
+  // })
+
+
+    
+  console.log(inmateData?.inmates)
+  // const { items } = inmateData?.inmates;
+  // console.log(items)
+      
+
+  // const inmateInfo = items.map((inmate) => ({
+  //           inmateId: inmate._id,
+  //           username: inmate.username,
+  //           image: inmate.image,
+  //           age: inmate.age,
+  //         }));
+  //   // console.log(inmateData)
+  //   setDb(inmateInfo);
+    
+  // const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_INMATES)
+  // console.log(inmateData?.inmates.gender)
+  // const arr1 = inmateData?.filter(d => d.gender === preferences)
+  // console.log('arr1', arr1)
+  // if (preferences == "male") {
+  //   db = inmateData.gender.male
+  //   return db
+  // }
+  // else if (preferences == "female") {
+  //   db = inmateData.gender.female
+  //   return db
+  // } else {
+  //   db = inmateData
+  //   return db
+  // };
+
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
   // used for outOfFrame closure
@@ -50,8 +94,8 @@ function Card () {
     updateCurrentIndex(index - 1)
   }
 
-  const outOfFrame = (name, idx) => {
-    console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
+  const outOfFrame = (username, idx) => {
+    console.log(`${username} (${idx}) left the screen!`, currentIndexRef.current)
     // handle the case in which go back is pressed before card goes outOfFrame
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
     // TODO: when quickly swipe and restore multiple times the same card,

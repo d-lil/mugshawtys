@@ -4,6 +4,7 @@ import { Navbar, Nav, Modal, Tab, NavDropdown } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
+
 import Auth from '../utils/auth';
 
 const AppNavbar = () => {
@@ -14,13 +15,14 @@ const AppNavbar = () => {
     <>
       <Navbar bg='dark' variant='dark' expand='lg' className='nav'>
         <div className="d-flex flex-nowrap w-100">
-          <Navbar.Brand as={Link} to='/' className="d-flex justify-content-start title">
+          <Navbar.Brand as={Link} to='/' className="d-flex justify-content-start title" id="title">
             Babes Behind Bars
           </Navbar.Brand>
           <Navbar.Collapse className='d-flex justify-content-end'>
             <Nav className='ml-auto d-flex'>
               {Auth.loggedIn() ? (
                 <NavDropdown title="🏃‍♂️💨🚓">
+                  <NavDropdown.Item as={Link} to='/profile'>Profile</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to='/settings'>Settings</NavDropdown.Item>
                   <NavDropdown.Item onClick={Auth.logout}>Logout</NavDropdown.Item>                  
                 </NavDropdown>

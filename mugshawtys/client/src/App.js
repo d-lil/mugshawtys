@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Navbar from './components/Navbar';
 import { 
@@ -47,10 +48,15 @@ function App() {
               path='/settings' 
               element={<Settings />} 
             />
+            <Route
+              path='/profile'
+              element={<Profile />}
+            />
             <Route 
               path='*'
               element={<h1 className='display-2'>Wrong page!</h1>}
             />
+            
           </Routes>
           {/* <CardComp />   */}
         </>

@@ -12,9 +12,6 @@ import CardComp from '../components/Card';
 import Auth from '../utils/auth';
 import hearthands from '.././components/images/hearthands.png';
 
-const searchInmates = (query) => {
-  return fetch(`http://www.JailBase.com/api/1/recent/?source_id=${query}`);
-};
 
 const Home = () => {
   // create state for holding returned google api data
@@ -42,6 +39,7 @@ const Home = () => {
   // } catch (err) {
   //   console.error(err);
   // }
+  
   
   return (
     <>

@@ -16,6 +16,7 @@ body {
     font-family: 'Damion', cursive;
   }
 
+ 
   .small {
     font-weight: 300;
     font-style: italic;
@@ -37,4 +38,14 @@ body {
     right: 0;
     left: 0;
     height: auto;
+  }
+  
+  .settingsPage {
+    margin-top: 15%;
+  }
+
+
+
+  div.preview-images > img {
+    width: 30%;
   }
