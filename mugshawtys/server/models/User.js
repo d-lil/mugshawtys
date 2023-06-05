@@ -10,15 +10,13 @@ const userSchema = new Schema(
     },
     email: {
       type: String,
-      required: false,
+      required: true,
       unique: true,
       match: [/.+@.+\..+/, 'Must use a valid email address'],
-      index: { unique: false },
-      default: null,
     },
     password: {
       type: String,
-      required: false,
+      required: true,
     },
     image: {
       type: String,
@@ -26,11 +24,11 @@ const userSchema = new Schema(
     },
     gender: {
       type: String,
-      required: false,
+      required: true,
     },
     age: {
       type: String,
-      required: false,
+      required: true,
     },
     preferences: {
       type: String,
