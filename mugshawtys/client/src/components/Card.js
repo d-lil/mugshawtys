@@ -26,46 +26,28 @@ const db = [
 ]
 // const preferences = "male"
 function Card () {
-  const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_INMATES)
-  // const [db, setDb] = useState([])
-  // const [saveInmateIds, setSavedInmateIds] = useState(getSavedInmateIds())
-  // const [saveInmate, { error }] = useMutation(SAVE_INMATE)
-  // useEffect(() => {
-  //   return () => saveInmateIds(saveInmateIds)
-  // })
-
-
-    
-  console.log(inmateData?.inmates)
-  // const { items } = inmateData?.inmates;
-  // console.log(items)
-      
-
-  // const inmateInfo = items.map((inmate) => ({
-  //           inmateId: inmate._id,
-  //           username: inmate.username,
-  //           image: inmate.image,
-  //           age: inmate.age,
-  //         }));
-  //   // console.log(inmateData)
-  //   setDb(inmateInfo);
-    
-  // const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_INMATES)
-  // console.log(inmateData?.inmates.gender)
-  // const arr1 = inmateData?.filter(d => d.gender === preferences)
-  // console.log('arr1', arr1)
-  // if (preferences == "male") {
-  //   db = inmateData.gender.male
-  //   return db
-  // }
-  // else if (preferences == "female") {
-  //   db = inmateData.gender.female
-  //   return db
-  // } else {
-  //   db = inmateData
-  //   return db
-  // };
-
+  const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_INMATES);console.log(inmateData?.inmates);
+  
+  const newInmateList = inmateData && inmateData.inmates.map((inmate) => ({
+    inmateId: inmate._id,
+    username: inmate.username,
+    image: inmate.image,
+    age: inmate.age,
+    gender: inmate.gender,  
+  }));
+  console.log(newInmateList)
+    // if (preferences == "male") {
+    //   db = men
+    //   return db
+    //   } 
+    // else if (preferences == "female") {
+    //   db = women
+    //   return db
+    //   }
+    // else if (preferences == "both") {
+    //   db = both
+    //   return db
+    //   }
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
   // used for outOfFrame closure
@@ -146,9 +128,9 @@ function Card () {
         ))}
       </div>
       <div className='buttons'>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>Swipe left!</button>
-        <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>Swipe right!</button>
+        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>✖</button>
+        <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>↪</button>
+        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>🖤</button>
       </div>
       {lastDirection ? (
         <h6 key={lastDirection} className='infoText'>

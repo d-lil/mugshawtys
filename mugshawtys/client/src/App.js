@@ -35,9 +35,18 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    
     <ApolloProvider client={client}>
       <Router>
         <>
+        <link
+        href='https://fonts.googleapis.com/css?family=Damion&display=swap'
+        rel='stylesheet'
+      />
+      <link
+        href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
+        rel='stylesheet'
+      />
           <Navbar />
           <Routes>
             <Route 

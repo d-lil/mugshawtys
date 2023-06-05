@@ -19,8 +19,8 @@ const Profile = () => {
   
   const token = Auth.loggedIn() ? Auth.getToken() : null;
   const { loading, data } = useQuery(QUERY_ME);
-  const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_INMATES);
-    console.log(inmateData)
+  // const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_INMATES);
+    // console.log(inmateData)
   if (!token) {
     return false;
   }
@@ -42,15 +42,15 @@ const Profile = () => {
   //   }
   // };
   console.log(data?.me)
-  if (!data?.me || !inmateData?.inmates) {
-    return <h2>Loading...</h2>;
-  }
+  // if (!data?.me || !inmateData?.inmates) {
+  //   return <h2>Loading...</h2>;
+  // }
   return (
     <>
       <div className="profile">
         <Container>
-          <Image src={data?.me.image} alt="profile pic" roundedCircle />
-          <h1>{data?.me.username}</h1>    
+          {/* <Image src='' alt="profile pic" roundedCircle /> */}
+          <h1></h1>    
         </Container>
       </div>
       <Container>
