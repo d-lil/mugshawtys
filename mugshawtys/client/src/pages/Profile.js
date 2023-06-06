@@ -10,8 +10,24 @@ import Auth from "../utils/auth";
 import { Navigate, useParams } from "react-router-dom";
 
 const Profile = () => {
- const { loading, data } = useQuery(QUERY_ME);
-  console.log(data);
+  // const { username: userParam } = useParams();
+
+  // const { loading, error, data } = useQuery(QUERY_USER, {
+  //   variables: { username: "san" },
+  // });
+
+  const { loading, data } = useQuery(QUERY_ME);
+ 
+  if (!loading) {
+    const user = data?.me || data?.user || {};
+    console.log(data);
+
+    if (Auth.loggedIn() && Auth.getProfile().data.username) {
+      console.log("true");
+      // return <Navigate to="/profile" />;
+    }
+  }
+
   // const token = Auth.loggedIn() ? Auth.getToken() : null;
   // const { loading, data } = useQuery(QUERY_ME);
   // if (!token) {
@@ -34,7 +50,7 @@ const Profile = () => {
   //     console.error(err);
   //   }
   // };
-  
+  console.log(data?.me);
   // if (!data?.me || !inmateData?.inmates) {
   //   return <h2>Loading...</h2>;
   // }
