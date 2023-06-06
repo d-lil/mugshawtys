@@ -7,7 +7,7 @@ import { parse } from 'graphql';
 
 const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', age: '', gender: ''  });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', gender: '', age: '' });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -44,8 +44,9 @@ const SignupForm = () => {
       username: '',
       email: '',
       password: '',
-      age: '',
       gender: '',
+      age: '',
+     
       
     });
   };
@@ -99,12 +100,6 @@ const SignupForm = () => {
             required
           />
         </Form.Group>
-      
-        <Form.Group className='mb-3'>
-          <Form.Label htmlFor='age'>Your Age</Form.Label>
-          <br></br>
-          <input type="number" value={userFormData.age} name="age" onChange={handleInputChange} />
-        </Form.Group>
         
         <Form.Group className='mb-3'>
           <Form.Label htmlFor='gender'>Gender</Form.Label>
@@ -114,6 +109,14 @@ const SignupForm = () => {
               <option name='female' value='female'>Female</option>
             </select>
         </Form.Group>
+      
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor='age'>Your Age</Form.Label>
+          <br></br>
+          <input type="number" value={userFormData.age} name="age" onChange={handleInputChange} />
+        </Form.Group>
+        
+        
 
         <Button
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}

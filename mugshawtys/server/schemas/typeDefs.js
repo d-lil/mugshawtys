@@ -16,11 +16,11 @@ const typeDefs = gql`
 
   type Inmate {
     _id: ID
-    username: String
-    image: String
-    gender: String
-    age: String
-    about: String
+    inmateName: String
+    inmateImage: String
+    inmateGender: String
+    inmateAge: String
+    inmateAbout: String
   }
   
   input InmateInput {

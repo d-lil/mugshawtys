@@ -13,8 +13,8 @@ export const QUERY_ME = gql`
             about
             savedInmates {
                 _id
-                name
-                image
+                inmateName
+                inmateImage
             }
         }
     },

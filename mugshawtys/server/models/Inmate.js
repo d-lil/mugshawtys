@@ -6,23 +6,23 @@ const inmateSchema = new Schema({
         required: true,
 
     },
-    username: {
+    inmateName: {
         type: String,
         required: true,
     },
-    image: {
+    inmateImage: {
         type: String,
         required: true,
     },
-    gender: {
+    inmateGender: {
         type: String,
         required: true,
     },
-    age: {
+    inmateAge: {
         type: String,
         required: false,
     },
-    about: {
+    inmateAbout: {
         type: String,
         required: false,
     },

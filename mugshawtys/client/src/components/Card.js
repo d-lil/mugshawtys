@@ -8,46 +8,45 @@ import { saveInmateIds, removeInmateId, getSavedInmateIds } from '../utils/local
 
 const db = [
   {
-    name: 'Saoirse',
-    url: 'https://www.mindfood.com/wp-content/uploads/2018/10/Saoirse-Ronan-M.jpeg'
+    username: 'Saoirse',
+    image: 'https://www.mindfood.com/wp-content/uploads/2018/10/Saoirse-Ronan-M.jpeg',
+    age: '26',
   },
   {
-    name: 'Brendan',
-    url: 'https://imengine.public.prod.dur.navigacloud.com/?uuid=A207CDAC-187A-4AD4-B9FA-AC9E233E43AB&function=original&type=preview'
+    username: 'Brendan',
+    image: 'https://imengine.public.prod.dur.navigacloud.com/?uuid=A207CDAC-187A-4AD4-B9FA-AC9E233E43AB&function=original&type=preview',
+    age: '31',
   },
   {
-    name: 'Lujan',
-    url: 'https://pbs.twimg.com/ext_tw_video_thumb/1569885466433929218/pu/img/SZUskyRF83Km_50l.jpg'
+    username: 'Lujan',
+    image: 'https://pbs.twimg.com/ext_tw_video_thumb/1569885466433929218/pu/img/SZUskyRF83Km_50l.jpg',
+    age: '25',
   },
   {
-    name: 'Pitt',
-    url: 'https://i.insider.com/536a4500ecad042454b1a77a?width=1018&format=jpeg'
+    username: 'Pitt',
+    image: 'https://i.insider.com/536a4500ecad042454b1a77a?width=1018&format=jpeg',
+    age: '29',
   }
 ]
-// const preferences = "male"
+const preferences = "male"
 function Card () {
   const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_INMATES);console.log(inmateData?.inmates);
   
-  const newInmateList = inmateData && inmateData.inmates.map((inmate) => ({
-    inmateId: inmate._id,
-    username: inmate.username,
-    image: inmate.image,
-    age: inmate.age,
-    gender: inmate.gender,  
-  }));
-  console.log(newInmateList)
-    // if (preferences == "male") {
-    //   db = men
-    //   return db
-    //   } 
-    // else if (preferences == "female") {
-    //   db = women
-    //   return db
-    //   }
-    // else if (preferences == "both") {
-    //   db = both
-    //   return db
-    //   }
+  // const inmateInfo = inmateData && inmateData.inmates.map((inmate) => ({
+  //   inmateId: inmate._id,
+  //   username: inmate.username,
+  //   image: inmate.image,
+  //   age: inmate.age,
+  //   gender: inmate.gender,  
+  // }));
+  // console.log(inmateInfo);
+  // console.log(inmateInfo[0].gender);
+  // if (preferences == "male") {
+  //   let male = inmateInfo.filter(function (el) {
+  //     return el.gender == "male"
+  //   }) 
+  //   console.log(male);
+  // }
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
   // used for outOfFrame closure
@@ -114,15 +113,15 @@ function Card () {
           <TinderCard
             ref={childRefs[index]}
             className='swipe'
-            key={character.name}
-            onSwipe={(dir) => swiped(dir, character.name, index)}
-            onCardLeftScreen={() => outOfFrame(character.name, index)}
+            key={character.username}
+            onSwipe={(dir) => swiped(dir, character.username, index)}
+            onCardLeftScreen={() => outOfFrame(character.username, index)}
           >
             <div
-              style={{ backgroundImage: 'url(' + character.url + ')' }}
+              style={{ backgroundImage: 'url(' + character.image + ')' }}
               className='card'
             >
-              <h3>{character.name}</h3>
+              <h3 className="cardName"><b>{character.username}</b> - {character.age}  </h3>
             </div>
           </TinderCard>
         ))}
