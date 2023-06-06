@@ -84,6 +84,14 @@
     height: 100%;
   }
   
+  .cardName {
+    background: linear-gradient(#d8a283, #4a7394);
+    opacity: 95%;
+    border-radius: 20px;
+    padding: 10px;
+    text-shadow: black 1px 1px 10px;
+  }
+
   .swipe {
     cursor: move; 
     cursor: grab;

@@ -32,11 +32,7 @@ const inmateSeed = [
 }
 ]
 
-db.once("open", async () => {
-    ///////////////////////////
-    // we may want to delete the deletemany, not sure yet. However, I don't want to add duplicates to the database
-    // await User.deleteMany({});
-    
+db.once("open", async () => {    
     await User.deleteMany({});
     await User.insertMany(inmateSeed);
     console.log("inmate seed complete");

@@ -12,7 +12,6 @@ export const QUERY_ME = gql`
             preferences
             about
             savedInmates {
-                _id
                 name
                 image
             }
