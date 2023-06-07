@@ -1,0 +1,32 @@
+/* align-items: flex-start; */
+
+.profileMe{
+    width: 50%;
+    float: left;
+    margin-top: 60px;
+   
+}
+
+.profileSaved {
+    
+    margin-top: 60px;
+    width: 50%;
+    float: right;
+}
+
+.match {
+    font-family: 'Damion', cursive;
+    color: #fff;
+    text-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
+}
+
+.label {
+    font-family: 'Damion', cursive;
+    color: black;
+    font-size: 2rem;
+    font-weight: 500;
+    background: linear-gradient(0deg, rgba(244,243,245,1) 41%, rgba(165,205,231,0.8113620448179272) 99%);
+    padding: 0 0.5rem;
+    border-radius: 25px;
+    box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
+}
