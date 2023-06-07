@@ -13,7 +13,7 @@ const typeDefs = gql`
     about: String
     savedInmates: [Inmate]
   }
-
+ 
   type Inmate {
     _id: ID
     inmateName: String
@@ -35,6 +35,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
+    users: [User]
     inmates: [Inmate]
   }
 
@@ -43,7 +44,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     updateUser(image: String, preferences: String, about: String): User
     saveInmate(input: InmateInput): User
-    removeInmate(inmateId: ID!): User
+    removeInmate(_id: ID!): User
   }
 `;
 

@@ -15,16 +15,33 @@ export const QUERY_ME = gql`
                 _id
                 inmateName
                 inmateImage
+                inmateAge
+                inmateGender
+                inmateAbout
             }
         }
     },
+`;
+
+export const QUERY_USERS = gql`
+    query users {
+        users {
+            _id
+            username
+            email
+            image
+            gender
+            age
+            about
+        }
+    }
 `;
 
 export const QUERY_INMATES = gql`
     query inmates {
         inmates {
             _id
-            username
+            name
             image
             gender
             age

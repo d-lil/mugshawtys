@@ -12,7 +12,7 @@ const inmateSchema = new Schema({
     },
     inmateImage: {
         type: String,
-        required: true,
+        required: false,
     },
     inmateGender: {
         type: String,

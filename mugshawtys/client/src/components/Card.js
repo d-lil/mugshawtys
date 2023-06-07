@@ -2,7 +2,7 @@ import React, { useState, useMemo, useRef, useEffect } from 'react'
 import TinderCard from 'react-tinder-card'
 import './Card.css'
 import { useQuery, useMutation } from '@apollo/client'
-import { QUERY_INMATES } from '../utils/queries'
+import { QUERY_USERS, QUERY_ME } from '../utils/queries'
 import { SAVE_INMATE } from '../utils/mutations'
 import { saveInmateIds, removeInmateId, getSavedInmateIds } from '../utils/localStorage'
 
@@ -30,23 +30,38 @@ const db = [
 ]
 const preferences = "male"
 function Card () {
-  const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_INMATES);console.log(inmateData?.inmates);
-  
-  // const inmateInfo = inmateData && inmateData.inmates.map((inmate) => ({
-  //   inmateId: inmate._id,
-  //   username: inmate.username,
-  //   image: inmate.image,
-  //   age: inmate.age,
-  //   gender: inmate.gender,  
-  // }));
-  // console.log(inmateInfo);
-  // console.log(inmateInfo[0].gender);
+  // const { loading, error, data } = useQuery(QUERY_ME);
+  const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_USERS);
+
+  // const preferences = data?.me.preferences;
+
+  const inmateInfo = inmateData && inmateData.users.map((inmate) => ({
+    _id: inmate._id,
+    inmateName: inmate.username,
+    inmateImage: inmate.image,
+    inmateAge: inmate.age,
+    inmateGender: inmate.gender,  
+  }));
+  console.log(inmateInfo);
+ 
   // if (preferences == "male") {
-  //   let male = inmateInfo.filter(function (el) {
-  //     return el.gender == "male"
+  //   let db = inmateInfo.filter(function (el) {
+  //      el.gender == "male"
+  //      return db
   //   }) 
-  //   console.log(male);
+  //   console.log(db);
+  // } else if (preferences == "female") {
+  //   let db = inmateInfo.filter(function (el) {
+  //      el.gender == "female"
+  //      return db
+  //   }) 
+  //   console.log(db);
+  // } else if (preferences == "both") {
+  //   let db = inmateInfo
+  //   return db
   // }
+  // console.log(db);
+
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
   // used for outOfFrame closure
