@@ -1,10 +1,11 @@
 /* align-items: flex-start; */
 
 .profileMe{
+    margin-left: 30px;
     width: 50%;
     float: left;
     margin-top: 60px;
-   
+    color: white
 }
 
 .profileSaved {
