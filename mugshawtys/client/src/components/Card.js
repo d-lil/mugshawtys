@@ -6,61 +6,64 @@ import { QUERY_USERS, QUERY_ME } from '../utils/queries'
 import { SAVE_INMATE } from '../utils/mutations'
 import { saveInmateIds, removeInmateId, getSavedInmateIds } from '../utils/localStorage'
 
-const db = [
-  {
-    username: 'Saoirse',
-    image: 'https://www.mindfood.com/wp-content/uploads/2018/10/Saoirse-Ronan-M.jpeg',
-    age: '26',
-  },
-  {
-    username: 'Brendan',
-    image: 'https://imengine.public.prod.dur.navigacloud.com/?uuid=A207CDAC-187A-4AD4-B9FA-AC9E233E43AB&function=original&type=preview',
-    age: '31',
-  },
-  {
-    username: 'Lujan',
-    image: 'https://pbs.twimg.com/ext_tw_video_thumb/1569885466433929218/pu/img/SZUskyRF83Km_50l.jpg',
-    age: '25',
-  },
-  {
-    username: 'Pitt',
-    image: 'https://i.insider.com/536a4500ecad042454b1a77a?width=1018&format=jpeg',
-    age: '29',
-  }
-]
-const preferences = "male"
+// const db = [
+//   {
+//     inmateName: 'Saoirse',
+//     inmateImage: 'https://www.mindfood.com/wp-content/uploads/2018/10/Saoirse-Ronan-M.jpeg',
+//     inmateAge: '26',
+//   },
+//   {
+//     inmateName: 'Brendan',
+//     inmateImage: 'https://imengine.public.prod.dur.navigacloud.com/?uuid=A207CDAC-187A-4AD4-B9FA-AC9E233E43AB&function=original&type=preview',
+//     inmateAge: '31',
+//   },
+//   {
+//     inmateName: 'Lujan',
+//     inmateImage: 'https://pbs.twimg.com/ext_tw_video_thumb/1569885466433929218/pu/img/SZUskyRF83Km_50l.jpg',
+//     inmateAge: '25',
+//   },
+//   {
+//     inmateName: 'Pitt',
+//     inmateImage: 'https://i.insider.com/536a4500ecad042454b1a77a?width=1018&format=jpeg',
+//     inmateAge: '29',
+//   }
+// ]
+
 function Card () {
-  // const { loading, error, data } = useQuery(QUERY_ME);
+  const { loading, error, data } = useQuery(QUERY_ME);
   const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_USERS);
+  
+  const preferences = data?.me.preferences;
 
-  // const preferences = data?.me.preferences;
-
-  const inmateInfo = inmateData && inmateData.users.map((inmate) => ({
+  const db = inmateData && inmateData.users.map((inmate) => ({
     _id: inmate._id,
     inmateName: inmate.username,
     inmateImage: inmate.image,
     inmateAge: inmate.age,
     inmateGender: inmate.gender,  
   }));
-  console.log(inmateInfo);
+  console.log(db);
  
   // if (preferences == "male") {
-  //   let db = inmateInfo.filter(function (el) {
-  //      el.gender == "male"
-  //      return db
+  //   let mdb = db.filter(function (el) {
+  //     return el.inmateGender == "male"
   //   }) 
-  //   console.log(db);
+  //   let newdb = mdb.toarray();
+  //   return newdb;
+  // }
+  // console.log(newdb);
   // } else if (preferences == "female") {
-  //   let db = inmateInfo.filter(function (el) {
-  //      el.gender == "female"
-  //      return db
+  //   let newdb = db.filter(function (el) {
+  //     return el.gender == "female"
+       
   //   }) 
-  //   console.log(db);
+  //   console.log(newdb);
+  // }
   // } else if (preferences == "both") {
   //   let db = inmateInfo
-  //   return db
+  //   return 
   // }
-  // console.log(db);
+  
 
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
@@ -99,12 +102,25 @@ function Card () {
     // during latest swipes. Only the last outOfFrame event should be considered valid
   }
 
+
+
+  /////////////////////////////////////////////////////////////////////
+  //LOCAL STORAGE NOT WORKING
+  ///////////////////////////////////////////////////////////////////
   const swipe = async (dir) => {
     if (canSwipe && currentIndex < db.length) {
-      await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
-    }
+      await childRefs[currentIndex].current.swipe(dir)
+      if (dir === 'right') {
+          saveInmateIds({
+            variables: { inmateId: db[currentIndex]._id }
+          })
+        } else {
+          removeInmateId(db[currentIndex]._id)
+        }
+              // Swipe the card!
+    } 
   }
-
+  
   // increase current index and show card
   const goBack = async () => {
     if (!canGoBack) return
@@ -128,15 +144,15 @@ function Card () {
           <TinderCard
             ref={childRefs[index]}
             className='swipe'
-            key={character.username}
-            onSwipe={(dir) => swiped(dir, character.username, index)}
-            onCardLeftScreen={() => outOfFrame(character.username, index)}
+            key={character.inmateName}
+            onSwipe={(dir) => swiped(dir, character.inmateName, index)}
+            onCardLeftScreen={() => outOfFrame(character.inmateName, index)}
           >
             <div
-              style={{ backgroundImage: 'url(' + character.image + ')' }}
+              style={{ backgroundImage: 'url(' + character.inmateImage + ')' }}
               className='card'
             >
-              <h3 className="cardName"><b>{character.username}</b> - {character.age}  </h3>
+              <h3 className="cardName"><b>{character.inmateName}</b> - {character.inmateAge}  </h3>
             </div>
           </TinderCard>
         ))}
