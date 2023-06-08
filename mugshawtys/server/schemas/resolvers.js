@@ -11,6 +11,12 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+        users: async () => {
+            return User.find()
+        },
+        inmate: async (parent, { inmateId }) => {
+            return User.findOne({ inmateId });
+        },
         inmates: async (parent, args) => {
             return User.find();
         },
@@ -52,21 +58,21 @@ const resolvers = {
             return user;
         },
 
-        saveInmate: async (parent, { input }, context) => {
+        saveInmate: async (parent, { inmateInfo }, context) => {
             const updateUser = await User.findOneAndUpdate(
                 { _id: context.user._id },
-                { $addToSet: { savedInmates: input } },
+                { $addToSet: { savedInmates: inmateInfo } },
                 { new: true }
             );
 
             return updateUser;
         },
 
-        removeInmate: async (parent, { inmateId }, context) => {
+        removeInmate: async (parent, { _id }, context) => {
             if (context.user) {
                 const updateUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { savedInmates: { inmateId } } },
+                    { $pull: { savedInmates: { _id } } },
                     { new: true }
                 );
 
