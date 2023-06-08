@@ -42,11 +42,11 @@ const Profile = () => {
   const handleDeleteInmate = async (_id) => {
     try {
       const { data } = await removeInmate({
-        variables: { _id },
+        variables: { inmateId },
       });
 
       // upon success, remove inmate's id from localStorage
-      removeInmateId(_id);
+      removeInmateId(inmateId);
     } catch (err) {
       console.error(err);
     }
