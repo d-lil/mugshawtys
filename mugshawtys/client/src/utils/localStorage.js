@@ -5,8 +5,18 @@ export const getSavedInmateIds = () => {
   
     return savedInmateIds;
   };
+
+export const saveInmateLs = (inmateInfo) => {
+    console.log(inmateInfo);
+    if (inmateInfo) {
+      localStorage.setItem('saved_inmates', JSON.stringify(inmateInfo));
+    } else {
+      localStorage.removeItem('saved_inmates');
+    }
+  };
   
 export const saveInmateIds = (inmateIdArr) => {
+
     if (inmateIdArr.length) {
       localStorage.setItem('saved_inmates', JSON.stringify(inmateIdArr));
     } else {

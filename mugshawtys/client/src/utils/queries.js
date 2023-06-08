@@ -12,7 +12,7 @@ export const QUERY_ME = gql`
             preferences
             about
             savedInmates {
-                _id
+                inmateId
                 inmateName
                 inmateImage
                 inmateAge
@@ -37,15 +37,29 @@ export const QUERY_USERS = gql`
     }
 `;
 
+export const QUERY_SINGLE_INMATE = gql`
+    query inmate($inmateId: ID!) {
+        inmate(inmateId: $inmateId) {
+            inmateId
+            inmateName
+            inmateImage
+            inmateGender
+            inmateAge
+            inmateAbout
+        }
+    }
+`;
+
+
 export const QUERY_INMATES = gql`
     query inmates {
         inmates {
-            _id
-            name
-            image
-            gender
-            age
-            about
+            inmateId
+            inmateName
+            inmateImage
+            inmateGender
+            inmateAge
+            inmateAbout
         }
     }
 `;

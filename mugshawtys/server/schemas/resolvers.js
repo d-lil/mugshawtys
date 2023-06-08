@@ -14,6 +14,9 @@ const resolvers = {
         users: async () => {
             return User.find()
         },
+        inmate: async (parent, { inmateId }) => {
+            return User.findOne({ inmateId });
+        },
         inmates: async (parent, args) => {
             return User.find();
         },
@@ -55,10 +58,10 @@ const resolvers = {
             return user;
         },
 
-        saveInmate: async (parent, { input }, context) => {
+        saveInmate: async (parent, { inmateInfo }, context) => {
             const updateUser = await User.findOneAndUpdate(
                 { _id: context.user._id },
-                { $addToSet: { savedInmates: input } },
+                { $addToSet: { savedInmates: inmateInfo } },
                 { new: true }
             );
 

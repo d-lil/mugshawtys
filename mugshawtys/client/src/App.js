@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import Inmate from './pages/Inmate';
 import Navbar from './components/Navbar';
 import { 
   ApolloProvider, 
@@ -60,6 +61,10 @@ function App() {
             <Route
               path='/profile'
               element={<Profile />}
+            />
+            <Route
+              path='/inmate/:inmateId'
+              element={<Inmate />}
             />
             <Route 
               path='*'

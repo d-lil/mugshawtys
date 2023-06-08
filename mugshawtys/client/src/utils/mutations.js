@@ -39,15 +39,15 @@ export const UPDATE_USER = gql`
 `;
 
 export const SAVE_INMATE = gql`
-    mutation saveInmate($input: InmateInput) {
-        saveInmate(input: $input) {
-            _id
-            username
-            email
+    mutation saveInmate($inmateInfo: InmateInput) {
+        saveInmate(inmateInfo: $inmateInfo) {
             savedInmates {
                 inmateId
-                name
-                image
+                inmateName
+                inmateImage
+                inmateAge
+                inmateGender
+                inmateAbout
             }
         }
     }
@@ -61,8 +61,11 @@ export const REMOVE_INMATE = gql`
             email
             savedInmates {
                 inmateId
-                name
-                image
+                inmateName
+                inmateImage
+                inmateAge
+                inmateGender
+                inmateAbout
             }
         }
     }
