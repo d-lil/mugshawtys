@@ -13,7 +13,7 @@ const SettingsForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
   const [updateUser, { error, data }] = useMutation(UPDATE_USER);
-
+  const [selectedImage, setSelectedImage] = useState(null);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -44,22 +44,7 @@ const SettingsForm = () => {
       about: `${data.updateUser.about}`,
     });
   };
-  const uploadedImage = React.useRef(null);
-  const imageUploader = React.useRef(null);
-
-  const handleImageUpload = e => {
-    const [file] = e.target.files;
-    if (file) {
-      const reader = new FileReader();
-      const { current } = uploadedImage;
-      current.file = file;
-      reader.onload = e => {
-        current.src = e.target.result;
-        console.log(current.src);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+ 
 
   return (
     <>
@@ -80,32 +65,31 @@ const SettingsForm = () => {
             justifyContent: "center"
           }}
         >
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            ref={imageUploader}
-            style={{
-              display: "none"
-            }}
+          {selectedImage && (
+        <div>
+          <img
+            alt="not found"
+            width={"250px"}
+            src={URL.createObjectURL(selectedImage)}
+            
+            // onChange={handleInputChange} value={userFormData.preferences}
           />
-          <div
-            style={{
-              height: "90px",
-              width: "90px",
-              border: "1px black"
-            }}
-            onClick={() => imageUploader.current.click()}
-          >
-            <img
-              ref={uploadedImage}
-              style={{
-                width: "100%",
-                height: "100%",
-              }}
-            />
+          <br />
+          <button onClick={() => setSelectedImage(null)}>Remove</button>
         </div>
-      Click to upload Image
+      )}
+
+      <br />
+      <br />
+      
+      <input
+        type="file"
+        name="myImage"
+        onChange={(event) => {
+          console.log(event.target.files[0]);
+          setSelectedImage(event.target.files[0]);
+        }}
+      />
     </div>
         </Form.Group>
         <Form.Group className='mb-3'>

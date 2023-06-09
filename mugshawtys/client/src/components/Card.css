@@ -148,7 +148,7 @@
     }
   }
   
-  .buttons button {
+  .buttons button {     
     flex-shrink: 0;
     padding: 10px;
     border-radius: 25px;

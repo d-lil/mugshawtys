@@ -6,6 +6,7 @@ import { QUERY_USERS, QUERY_ME } from '../utils/queries'
 import { SAVE_INMATE } from '../utils/mutations'
 import { saveInmateLs, removeInmateId, getSavedInmateIds } from '../utils/localStorage'
 
+
 const db = [
   {
     inmateId: '1',
@@ -26,7 +27,7 @@ const db = [
     inmateAge: '25',
   },
   {
-    inmateId: '4',
+    inmateId: 546546,
     inmateName: 'Pitt',
     inmateImage: 'https://i.insider.com/536a4500ecad042454b1a77a?width=1018&format=jpeg',
     inmateAge: '29',
@@ -34,48 +35,70 @@ const db = [
 ]
 
 function Card () {
+  
   const { loading, data } = useQuery(QUERY_ME);
   const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_USERS);
-  
   const preferences = data?.me.preferences;
-
-  // const db = inmateData && inmateData.users.map((inmate) => ({
-  //   inmateId: inmate._id,
-  //   inmateName: inmate.username,
-  //   inmateImage: inmate.image,
-  //   inmateAge: inmate.age,
-  //   inmateGender: inmate.gender,  
-  // }));
-  // console.log(db);
-  // function filterGender() {
+  // const [db, setDb] = useState(filterGender());
+  
+  // function filterGender(inmateData) {
+       
   //   if (preferences == "male") {
-  //     let newdb = db.filter(function (el) {
+  //     let newdb = inmateData.filter(function (el) {
   //       return el.inmateGender == "male"
   //     }) 
-    
-  //     return newdb;
+  //     const db = newdb && newdb.users.map((inmate) => ({
+  //       inmateId: inmate._id,
+  //       inmateName: inmate.username,
+  //       inmateImage: inmate.image,
+  //       inmateAge: inmate.age,
+  //       inmateGender: inmate.gender,  
+  //       inmateAbout: inmate.about,
+  //       }));
+  // //       console.log(db, "57");
+  //       setDb(db);
+  //       return db;
+  //   } else if (preferences == "female") {
+  //     let newdb = inmateData.filter(function (el) {
+  //       return el.inmateGender == "female"
+  //     })
+  //     const db = newdb && newdb.users.map((inmate) => ({
+  //       inmateId: inmate._id,
+  //       inmateName: inmate.username,
+  //       inmateImage: inmate.image,
+  //       inmateAge: inmate.age,
+  //       inmateGender: inmate.gender,  
+  //       inmateAbout: inmate.about,
+  //       }));
+  //       console.log(db, "71");
+  //       setDb(db);
+  //       return db;
+  //   } else {
+  //     let newdb = inmateData
+  //     const db = newdb && newdb.users.map((inmate) => ({
+  //     inmateId: inmate._id,
+  //     inmateName: inmate.username,
+  //     inmateImage: inmate.image,
+  //     inmateAge: inmate.age,
+  //     inmateGender: inmate.gender,  
+  //     inmateAbout: inmate.about,
+  //     }));
+  //     console.log(db, "83");
+  //     setDb(db);
+  //     return db;
   //   }
-  
+    
   // }
   // console.log(filterGender());
+  // filterGender();
 
-  // } else if (preferences == "female") {
-  //   let newdb = db.filter(function (el) {
-  //     return el.gender == "female"
-       
-  //   }) 
-  //   console.log(newdb);
-  // }
-  // } else if (preferences == "both") {
-  //   let db = inmateInfo
-  //   return 
-  // }
   const [savedInmateIds, setSavedInmateIds] = useState(getSavedInmateIds());
   const [saveInmate, { error }] = useMutation(SAVE_INMATE);
   // useEffect(() => {
   //   return () => saveInmateIds(savedInmateIds);
   // });
   console.log(error)
+  
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
   // used for outOfFrame closure
@@ -110,9 +133,9 @@ function Card () {
         console.log({
           variables: { inmateInfo: {...character}},
         }) 
-        saveInmate({
-          variables: { inmateInfo: {...character}},
-        });
+        // saveInmate({
+        //   variables: { inmateInfo: {...character}},
+        // });
       } }
       catch (err) {
         console.error(error);
