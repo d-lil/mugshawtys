@@ -7,6 +7,8 @@ import { QUERY_USER, QUERY_ME, QUERY_INMATES } from "../utils/queries";
 import Auth from "../utils/auth";
 // import { REMOVE_INMATE } from '../utils/mutations';
 // import { removeInmateId } from '../utils/localStorage';
+import { Link } from "react-router-dom";
+import Inmate from "./Inmate"
 import { Navigate, useParams } from "react-router-dom";
 import "./Profile.css";
 
@@ -59,9 +61,9 @@ const Profile = () => {
     <>
       
 
-            <div className="profileMe">
+          <div className="profileMe">
               <h1><u>My Profile</u></h1>
-              <Card>
+              <Card className="profCard">
                 <div
                   style={{ backgroundImage: 'url(' + data?.me.image + ')' }}
                   className='card'
@@ -83,25 +85,28 @@ const Profile = () => {
                   ? `Viewing ${data?.me.savedInmates.length} saved ${data?.me.savedInmates.length === 1 ? 'inmate' : 'inmates'}:`
                   : 'You have no matches!'}
               </h2>
-              <Col md="3">
+             
                 {data?.me.savedInmates.map((inmate) => {
                 return (
-                  <Col md="4">
-                    <Card key={inmate._id} border='dark' className="savedInmateCard">
-                      {inmate.inmateImage ? 
-                      <Card.Img src={inmate.inmateImage} alt={`${inmate.inmateName}`} variant='top' /> : null}
-                      <Card.Body>
-                        <Card.Title>{inmate.inmateName}</Card.Title>
-                        <Card.Text>{inmate.inmateAge}</Card.Text>
-                        <Button className='btn-block btn-danger' onClick={() => handleDeleteInmate(inmate._id)}>
-                          Delete this Book!
-                        </Button>
-                      </Card.Body>
-                    </Card>
-                  </Col>
+                    
+                      <Card className="profCard">
+                        <Link to={`/inmate/${inmate.inmateId}`}>
+                        <div 
+                          style={{ backgroundImage: 'url(' + inmate.inmateImage + ')' }}
+                          className='card'
+                        >
+                          <h3 className="cardName"><b>{inmate.inmateName}</b> - {inmate.inmateAge}  </h3>
+                        </div>
+                        </Link>
+                          <Button className='btn-block btn-danger' onClick={() => handleDeleteInmate(inmate.inmateId)}>
+                          Delete this Inmate
+                          </Button>
+                      </Card>   
+                    
+                                 
                 );
               })}
-              </Col>
+              
           </div>
     
     </>

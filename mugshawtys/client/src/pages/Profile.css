@@ -9,7 +9,7 @@
 }
 
 .profileSaved {
-    
+    padding-left: 15px;
     margin-top: 60px;
     width: 50%;
     float: right;
@@ -31,3 +31,22 @@
     border-radius: 25px;
     box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
 }
+
+.savedInmateCard {
+    border-radius: 25px;
+    background-color: none;
+}
+
+.savedInmateCard img {
+    border-radius: 25px 25px 0 0;
+}
+
+.savedInmateCard:hover {
+    box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
+}
+
+@media (max-width: 625px) {
+    .profCard {
+        
+    } 
+  }

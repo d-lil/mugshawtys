@@ -6,8 +6,8 @@ import { QUERY_SINGLE_INMATE } from '../utils/queries';
 
 const SingleInmate = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
-  const { inmateId } = useParams();
-
+  // const { inmateId } = useParams();
+  const inmateId = "4";
   const { loading, data } = useQuery(QUERY_SINGLE_INMATE, {
     variables: { inmateId: inmateId },
   });
