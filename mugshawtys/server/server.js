@@ -1,6 +1,8 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+const stripe = require('stripe')('sk_test_51NGXs7FAXUOYrBpZ5fasB4Lxhj9MYTpJWBntzqtyo7s0GRMdIr97dI6d8Is4glrPPUdhTlatB7cMgOBbFFpZPiZP00YCcdimd8');
+
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -53,6 +55,22 @@ if (process.env.NODE_ENV === 'production') {
 //     }
 // )
 
+// app.post('/create-checkout-session', async (req, res) => {
+//   const session = await stripe.checkout.sessions.create({
+//     line_items: [
+//       {
+        
+//         price: '{{pr_10}}',
+//         quantity: 1,
+//       },
+//     ],
+//     mode: 'payment',
+//     success_url: `${PORT}?success=true`,
+//     cancel_url: `${PORT}?canceled=true`,
+//   });
+
+//   res.redirect(303, session.url);
+// });
 
 
 // app.use(routes);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Alert, FormGroup } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { UPDATE_USER } from '../utils/mutations';
-
+import { ProductDisplay } from '../components/Stripe';
 
 
 const SettingsForm = () => {
@@ -133,6 +133,12 @@ const SettingsForm = () => {
           />
           
         </Form.Group>
+        <Button
+          type='submit'
+          variant='success'>
+           Go Premium!
+          </Button>
+<         ProductDisplay className='stripe-button' />
 
         <Button
           type='submit'
