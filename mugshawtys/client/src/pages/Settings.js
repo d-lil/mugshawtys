@@ -117,20 +117,22 @@ const SettingsForm = () => {
           />
           
         </Form.Group>
-        <Button
-          type='submit'
-          variant='success'>
-           Go Premium!
-          </Button>
-<         ProductDisplay className='stripe-button' />
+        
 
         <Button
           type='submit'
           variant='success'>
           Submit
         </Button>
-      </Form>
-
+ 
+  
+      <Button
+          type='submit'
+          variant='success'>
+           Go Premium!
+          </Button>
+<         ProductDisplay className='ProductDisplay' />
+</Form>
     </>
   );
 };
