@@ -1,5 +1,5 @@
 {
-  "name": "client",
+    "name": "client",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
@@ -40,8 +40,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/react-dom": "^18.2.4"
-  }
+}
 }

@@ -55,22 +55,23 @@ if (process.env.NODE_ENV === 'production') {
 //     }
 // )
 
-// app.post('/create-checkout-session', async (req, res) => {
-//   const session = await stripe.checkout.sessions.create({
-//     line_items: [
-//       {
+app.post('../components/Stripe.js', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
         
-//         price: '{{pr_10}}',
-//         quantity: 1,
-//       },
-//     ],
-//     mode: 'payment',
-//     success_url: `${PORT}?success=true`,
-//     cancel_url: `${PORT}?canceled=true`,
-//   });
+        price: '{{pr_10}}',
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${PORT}?success=true`,
+    cancel_url: `${PORT}?canceled=true`,
+  });
 
-//   res.redirect(303, session.url);
-// });
+  res.redirect(303, session.url);
+});
+
 
 
 // app.use(routes);
