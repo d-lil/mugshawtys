@@ -5,7 +5,7 @@ import { useQuery, useMutation } from '@apollo/client'
 import { QUERY_USERS, QUERY_ME } from '../utils/queries'
 import { SAVE_INMATE } from '../utils/mutations'
 import { saveInmateLs, removeInmateId, getSavedInmateIds } from '../utils/localStorage'
-
+import Auth from '../utils/auth'
 
 const db = [
   {
@@ -27,7 +27,7 @@ const db = [
     inmateAge: '25',
   },
   {
-    inmateId: 546546,
+    inmateId: "546546",
     inmateName: 'Pitt',
     inmateImage: 'https://i.insider.com/536a4500ecad042454b1a77a?width=1018&format=jpeg',
     inmateAge: '29',
@@ -36,25 +36,29 @@ const db = [
 
 function Card () {
   
-  const { loading, data } = useQuery(QUERY_ME);
-  const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_USERS);
-  const preferences = data?.me.preferences;
+  // const { loading, data } = useQuery(QUERY_ME);
+  // const { loading: inmateLoading, data: inmateData } = useQuery(QUERY_USERS);
+  // const preferences = data?.me.preferences;
   // const [db, setDb] = useState(filterGender());
-  
+
   // function filterGender(inmateData) {
        
   //   if (preferences == "male") {
   //     let newdb = inmateData.filter(function (el) {
   //       return el.inmateGender == "male"
   //     }) 
-  //     const db = newdb && newdb.users.map((inmate) => ({
-  //       inmateId: inmate._id,
-  //       inmateName: inmate.username,
-  //       inmateImage: inmate.image,
-  //       inmateAge: inmate.age,
-  //       inmateGender: inmate.gender,  
-  //       inmateAbout: inmate.about,
-  //       }));
+
+  // const db = inmateData && inmateData.users.map((inmate) => ({
+  //   inmateId: inmate._id,
+  //   inmateName: inmate.username,
+  //   inmateImage: inmate.image,
+  //   inmateAge: inmate.age,
+  //   inmateGender: inmate.gender,  
+  //   inmateAbout: inmate.about,
+  //   }))
+  //   console.log(db);
+   
+        
   // //       console.log(db, "57");
   //       setDb(db);
   //       return db;
@@ -92,12 +96,12 @@ function Card () {
   // console.log(filterGender());
   // filterGender();
 
-  const [savedInmateIds, setSavedInmateIds] = useState(getSavedInmateIds());
-  const [saveInmate, { error }] = useMutation(SAVE_INMATE);
+  // const [savedInmateIds, setSavedInmateIds] = useState(getSavedInmateIds());
+  const [saveInmate] = useMutation(SAVE_INMATE);
   // useEffect(() => {
   //   return () => saveInmateIds(savedInmateIds);
   // });
-  console.log(error)
+
   
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
@@ -122,26 +126,37 @@ function Card () {
   const canSwipe = currentIndex >= 0
 
   // set last direction and decrease current index
-  const swiped = (direction, character, index) => {
+  const swiped = async (direction, character, index) => {
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return false;
+    }
     setLastDirection(direction)
     updateCurrentIndex(index - 1)
-     try { if (direction === 'right') {
-
+     try { 
+      
+      if (direction === 'right') {
         saveInmateLs({
           variables: { inmateInfo: {...character}},
-        });
-        console.log({
-          variables: { inmateInfo: {...character}},
-        }) 
-        // saveInmate({
-        //   variables: { inmateInfo: {...character}},
-        // });
-      } }
-      catch (err) {
-        console.error(error);
-      } 
+        }); 
+        const storedInmate = JSON.parse(localStorage.getItem('saved_inmates'));
+        console.log(storedInmate)
+        console.log(storedInmate.variables.inmateInfo)
       
-  }
+        const { data } = await saveInmate({
+          variables: { inmateInfo: {...character}},
+        });
+
+            
+      }
+     }
+
+      
+      catch (err) {
+        console.error(err);
+      } 
+    }
 
   const outOfFrame = (username, idx) => {
     console.log(`${username} (${idx}) left the screen!`, currentIndexRef.current)

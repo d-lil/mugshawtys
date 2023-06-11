@@ -41,6 +41,9 @@ export const UPDATE_USER = gql`
 export const SAVE_INMATE = gql`
     mutation saveInmate($inmateInfo: InmateInput) {
         saveInmate(inmateInfo: $inmateInfo) {
+            _id
+            username
+            email
             savedInmates {
                 inmateId
                 inmateName
