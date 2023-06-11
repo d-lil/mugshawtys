@@ -5,6 +5,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Inmate from './pages/Inmate';
 import Navbar from './components/Navbar';
+import Premium from './pages/Premium';
 import { 
   ApolloProvider, 
   ApolloClient, 
@@ -61,6 +62,10 @@ function App() {
             <Route
               path='/profile'
               element={<Profile />}
+            />
+              <Route
+              path='/premium'
+              element={<Premium />}
             />
             <Route
               path='/inmate/:inmateId'
