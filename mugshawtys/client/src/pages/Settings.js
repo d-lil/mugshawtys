@@ -56,43 +56,6 @@ const SettingsForm = () => {
         </Alert>
 
         <Form.Group className='mb-3'>
-        <Form.Label htmlFor='image' className='title' id='label' ><u><b>Upload an Image</b></u></Form.Label>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          {selectedImage && (
-        <div>
-          <img
-            alt="not found"
-            width={"250px"}
-            src={URL.createObjectURL(selectedImage)}
-            
-            // onChange={handleInputChange} value={userFormData.preferences}
-          />
-          <br />
-          <button onClick={() => setSelectedImage(null)}>Remove</button>
-        </div>
-      )}
-
-      <br />
-      <br />
-      
-      <input
-        type="file"
-        name="myImage"
-        onChange={(event) => {
-          console.log(event.target.files[0]);
-          setSelectedImage(event.target.files[0]);
-        }}
-      />
-    </div>
-        </Form.Group>
-        <Form.Group className='mb-3'>
           <Form.Label htmlFor='preferences' className='title' id='label' ><u><b>Preferences</b></u></Form.Label>
           <p>Please Select One</p>
             <select name='preferences' onChange={handleInputChange} value={userFormData.preferences}>
@@ -124,6 +87,7 @@ const SettingsForm = () => {
           Submit
         </Button>
       </Form>
+
 
     </>
   );
