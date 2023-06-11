@@ -15,7 +15,7 @@ const typeDefs = gql`
   }
  
   type Inmate {
-    inmateId: ID
+    inmateId: String
     inmateName: String
     inmateImage: String
     inmateGender: String
@@ -24,7 +24,7 @@ const typeDefs = gql`
   }
   
   input InmateInput {
-    inmateId: ID
+    inmateId: String
     inmateName: String
     inmateImage: String
     inmateGender: String
@@ -40,7 +40,7 @@ const typeDefs = gql`
   type Query {
     me: User
     users: [User]
-    inmate(inmateId: ID!): Inmate
+    inmate(inmateId: String): Inmate
     inmates: [Inmate]
   }
 
@@ -48,7 +48,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!, age: String!, gender: String! ): Auth
     login(email: String!, password: String!): Auth
     updateUser(image: String, preferences: String, about: String): User
-    saveInmate(inmateInfo: InmateInput!): User
+    saveInmate(inmateInfo: InmateInput): User
     removeInmate(inmateId: ID!): User
   }
 `;

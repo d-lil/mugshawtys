@@ -89,7 +89,7 @@ const Profile = () => {
                 {data?.me.savedInmates.map((inmate) => {
                 return (
                     
-                      <Card className="profCard">
+                      <Card key={inmate.inmateId} className="profCard">
                         <Link to={`/inmate/${inmate.inmateId}`}>
                         <div 
                           style={{ backgroundImage: 'url(' + inmate.inmateImage + ')' }}

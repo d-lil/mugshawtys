@@ -60,8 +60,10 @@ const resolvers = {
 
         saveInmate: async (parent, { inmateInfo }, context) => {
             const updateUser = await User.findOneAndUpdate(
-                { _id: context.user._id },
+              
+                console.log(context.user._id),
                 { $addToSet: { savedInmates: inmateInfo } },
+                
                 { new: true }
             );
 
@@ -81,6 +83,7 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in!');
         },
+        
     },
 };
 

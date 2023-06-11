@@ -1,7 +1,7 @@
 const { Schema } = require('mongoose');
 
 const inmateSchema = new Schema({
-    _id: {
+    inmateId: {
         type: String,
         required: true,
 
