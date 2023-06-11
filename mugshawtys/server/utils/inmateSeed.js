@@ -98,7 +98,31 @@ const inmateSeed = [
     about: "I have tiger blood coursing through my veins.",
 
 }, 
+{
+    username: "Charlie",
+    image: "https://i.pinimg.com/474x/2e/70/0a/2e700a52f601cd561e7068ad6af9eb29--celebrity-mugshots-aspen-colorado.jpg",
+    age: "57",
+    gender: "male",
+    email: "q@q.com",
+    about: "I have tiger blood coursing through my veins.",
 
+}, {
+    username: "Charlie",
+    image: "https://i.pinimg.com/474x/2e/70/0a/2e700a52f601cd561e7068ad6af9eb29--celebrity-mugshots-aspen-colorado.jpg",
+    age: "57",
+    gender: "male",
+    email: "q@q.com",
+    about: "I have tiger blood coursing through my veins.",
+
+}, {
+    username: "Charlie",
+    image: "https://i.pinimg.com/474x/2e/70/0a/2e700a52f601cd561e7068ad6af9eb29--celebrity-mugshots-aspen-colorado.jpg",
+    age: "57",
+    gender: "male",
+    email: "q@q.com",
+    about: "I have tiger blood coursing through my veins.",
+
+}, 
 ]
 
 db.once("open", async () => {    
