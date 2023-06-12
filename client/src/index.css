@@ -1,6 +1,7 @@
 body {
     font-family: 'Rubik', sans-serif;
     display: flex;
+    background: linear-gradient(#f37932, #31516b);
   }
   
   h1,
@@ -52,4 +53,30 @@ body {
 
   div.preview-images > img {
     width: 30%;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: auto;
+    /* background: #424242; */
+    /* opacity: 100%;  */
+  }
+
+  .logo {
+    flex-direction: row;
+    margin-top: 50px;
+    height: 50px;
+    margin-top: auto;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 0;
+    opacity: 80%;
+    padding:3px;
+  }
+
+  .button logo hover {
+    transform: scale(1.05);
   }

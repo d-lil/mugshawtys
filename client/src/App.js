@@ -5,15 +5,18 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Inmate from './pages/Inmate';
 import CheckoutForm from './components/CheckoutForm';
-import Navbar from './components/Navbar'; // Navbar component
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
 
 import { 
   ApolloProvider, 
   ApolloClient, 
   InMemoryCache, 
   createHttpLink
- } from '@apollo/client'; // Apollo client components
-import { setContext } from '@apollo/client/link/context'; // Context setting for Apollo client
+ } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
 
 // GraphQL endpoint
 const httpLink = createHttpLink({
@@ -63,9 +66,11 @@ function App() {
             <Route path='/CheckoutForm' element={<CheckoutForm />} /> 
             <Route path='*' element={<h1 className='display-2'>Wrong page!</h1>} />
           </Routes>
-          {/* <CardComp />   */}
+
         </>
       </Router> 
+      <Footer />
+
     </ApolloProvider>
   );
 }

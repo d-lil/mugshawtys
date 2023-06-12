@@ -44,7 +44,7 @@ const typeDefs = gql`
     inmates: [Inmate]
   }
 
-# took preferences out of updateUser for now
+
   type Mutation {
     addUser(username: String!, email: String!, password: String!, age: String!, gender: String! ): Auth
     login(email: String!, password: String!): Auth
