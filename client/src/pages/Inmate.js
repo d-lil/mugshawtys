@@ -17,6 +17,7 @@ const SingleInmate = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
+  // Once the data is loaded, display the inmate's information
   return (
     <div className="my-3">
       <h3 className="card-header bg-dark text-light p-2 m-0">

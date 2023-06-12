@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Modal, Tab, NavDropdown } from 'react-bootstrap';
-import SignUpForm from './SignupForm';
-import LoginForm from './LoginForm';
-
-
-import Auth from '../utils/auth';
+import { Navbar, Nav, Modal, Tab, NavDropdown } from 'react-bootstrap'; // UI components
+import SignUpForm from './SignupForm'; // Sign Up Form component
+import LoginForm from './LoginForm'; // Login Form component
+import Auth from '../utils/auth'; // Token handling utilities
 
 const AppNavbar = () => {
-  // set modal display state
+  // Set modal display state
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -20,6 +18,7 @@ const AppNavbar = () => {
           </Navbar.Brand>
           <Navbar.Collapse className='d-flex justify-content-end'>
             <Nav className='ml-auto d-flex'>
+              {/* Conditional rendering based on authentication status */}
               {Auth.loggedIn() ? (
                 <NavDropdown title="🏃‍♂️💨🚓">
                   <NavDropdown.Item as={Link} to='/profile'>Profile</NavDropdown.Item>
@@ -34,13 +33,13 @@ const AppNavbar = () => {
           </Navbar.Collapse>
         </div>
       </Navbar>
-      {/* set modal data up */}
+      {/* Modal for login/signup */}
       <Modal
         size='lg'
         show={showModal}
         onHide={() => setShowModal(false)}
         aria-labelledby='signup-modal'>
-        {/* tab container to do either signup or login component */}
+        {/* tab container for login/signup */}
         <Tab.Container defaultActiveKey='login'>
           <Modal.Header closeButton>
             <Modal.Title id='signup-modal'>

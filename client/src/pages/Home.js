@@ -1,3 +1,4 @@
+// Importing necessary modules, components and utilities
 import React, { useState, useEffect } from 'react';
 import {
   Container,
@@ -8,19 +9,19 @@ import {
   Row,
 } from 'react-bootstrap';
 import CardComp from '../components/Card';
-// import User from '../utils/User';
 import Auth from '../utils/auth';
 import hearthands from '.././components/images/hearthands.png';
 import { useQuery } from '@apollo/client';
 import { QUERY_USERS } from '../utils/queries';
 
-
+// Home component
 const Home = () => {
+  // Initialize GraphQL Query
   const { loading, data } = useQuery(QUERY_USERS);
   const users = data?.users || [];
   console.log(users);
-  
- 
+
+  // Prepare new data structure for the user data
   const newDb = data && data.users.map((inmate) => ({
       inmateId: inmate._id,
       inmateName: inmate.username,
@@ -29,18 +30,21 @@ const Home = () => {
       inmateGender: inmate.gender,
       inmateAbout: inmate.about,
     }))
- if (loading) {
+
+  // Handle Loading State
+  if (loading) {
     return <div>Loading...</div>;
   }
+
+  // Render Home component
   return (
-    <>
-    
+    <>    
       <Container>
         {Auth.loggedIn() ? ( 
-          <CardComp data={newDb}/>
+          <CardComp data={newDb}/>   // Render CardComp component if user is logged in
           ) : (
             <div>
-              <h1 className="title">Sign up or login to start matching!</h1>
+              <h1 className="title">Sign up or login to start matching!</h1>   // Encourage user to sign up or log in if not logged in
                 <img src={hearthands} alt='hearthands' className="heart" />
             </div>
               )}
