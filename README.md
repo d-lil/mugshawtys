@@ -1,4 +1,4 @@
-# name
+# Babes Behind Bars
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
@@ -13,7 +13,7 @@
 
 ## Description
 
-Introducing a secure single-page online dating platform that combines the power of collaboration and the MERN stack technology to connect incarcerated individuals or those fascinated by the allure of 'bad boys' and 'bad girls.' This platform features a MongoDB backend, a GraphQL API, and an Express.js and Node.js server with a React front end that implements user authentication.
+Introducing a secure single-page online dating platform that combines the power of collaboration and the MERN stack technology to connect incarcerated individuals or those fascinated by the allure of 'bad boys' and 'bad girls.' This platform features a MongoDB backend, a GraphQL API, and an Express.js and Node.js server with a React front end that implements user authentication. Additionally, Stripe payment platform.
 
 ## Installation
 
@@ -24,13 +24,14 @@ npm i
 ## Usage
 
 ```bash
+npm run seed
 npm run build 
 npm run develop
 ```
 
 or
 
-[Visit the website:]()
+[Visit the website:](https://mugshawtys.herokuapp.com/)
 
 ![Alt text](./assets/mugshaw1.JPG)
 Welcome
@@ -54,6 +55,7 @@ Sign-up for new users
 ## Contributing
 
 > SHOUT OUT - We would like to give thanks to George Yoo for his substantial assistance during this project. 
+
 This project does not currently have any external contributors.
 
 ## Sources
