@@ -103,8 +103,8 @@
   }
 
   .swipe {
-    margin-left: -130px;
-    margin-top: 20px;
+    margin-left: 30px;
+    margin-top: 50px;
     cursor: move; 
     cursor: grab;
     cursor: -moz-grab;
@@ -146,12 +146,13 @@
   @media (max-width: 625px) {
     .buttons {
       flex-direction: row;
-      margin-left: -60px;
+      /* margin-left: -60px; */
     }
     .swipe {
+
         margin-top: -10px;
         position: absolute;
-        margin-left: 35px;
+        margin-left: -40px;
         left: 50px;
         right: 0;
     }
