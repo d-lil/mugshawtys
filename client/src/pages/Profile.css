@@ -1,7 +1,7 @@
 /* align-items: flex-start; */
 
 .profileMe{
-    margin-left: 30px;
+    margin-left: -20px;
     width: 50%;
     float: left;
     margin-top: 60px;
@@ -9,7 +9,7 @@
 }
 
 .profileSaved {
-    padding-left: 15px;
+    padding-left: -60px;
     margin-top: 60px;
     width: 50%;
     float: right;
@@ -48,7 +48,19 @@
 
 
 @media (max-width: 625px) {
-    .profCard {
-        
-    } 
+    .profileMe{
+        margin-left: 110px;
+        width: 50%;
+        float: left;
+        margin-top: 60px;
+        color: white
+    }
+
+    .profileSaved {
+        padding-left: 0px;
+        margin-top: 60px;
+        margin-right: 100px;
+        width: 50%;
+        float: right;
+    }
   }
