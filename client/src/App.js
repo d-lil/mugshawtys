@@ -6,6 +6,7 @@ import Settings from './pages/Settings';
 import Inmate from './pages/Inmate';
 import CheckoutForm from './components/CheckoutForm';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 
 import { 
@@ -80,6 +81,8 @@ function App() {
         </>
       </Router> 
          
+      <Footer />
+
     </ApolloProvider>
   );
 }

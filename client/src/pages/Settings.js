@@ -100,7 +100,7 @@ const SettingsForm = () => {
           
         </Form.Group>
 
-        <Button
+        <Button className='submitButton'
           type='submit'
           variant='success'
           onClick={handleShow}

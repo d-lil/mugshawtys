@@ -7,7 +7,7 @@ const inmateSeed = [
     image: "https://thumbs.mugshots.com/gallery/images/9c/d0/JACOB-RICHARD-WILLIAM-EDWARDS-mugshot-50338404.195x400.jpg",
     age: "24",
     gender: "male",
-    email: "x@x.com",
+    email: "x@ander.com",
     about: "Incarcerated, but I promise my heart is still free-range and longing for love.",
 },
 {
