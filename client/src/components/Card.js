@@ -144,22 +144,24 @@ const Card = (newDb) => {
           style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
           onClick={() => swipe("left")}
         >
-          ✖
+          ❌
         </button>
 
         <button
           style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
           onClick={() => swipe("right")}
         >
-          🖤
+          
+          💚
         </button>
       </div>
-      <div className="backButton">
-      <button
+      <div>
+      <button 
+          className="backButton"
           style={{ backgroundColor: !canGoBack && "#c3c4d3" }}
           onClick={() => goBack()}
         >
-          ↪
+          back
         </button>
       </div>
       {lastDirection ? (

@@ -44,6 +44,7 @@ const Home = () => {
           <CardComp data={newDb}/>
           ) : (
             <div>
+
               <h1 className="title">Sign up or login to start matching!</h1>
                 <img src={hearthands} alt='hearthands' className="heart" />
             </div>
