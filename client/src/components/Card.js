@@ -132,9 +132,9 @@ const Card = (newDb) => {
               style={{ backgroundImage: "url(" + character.inmateImage + ")" }}
               className="card"
             >
-              <h3 className="cardName">
+              <h4 className="cardName">
                 <b>{character.inmateName}</b> - {character.inmateAge}{" "}
-              </h3>
+              </h4>
             </div>
           </TinderCard>
         ))}
@@ -146,17 +146,20 @@ const Card = (newDb) => {
         >
           ✖
         </button>
-        <button
-          style={{ backgroundColor: !canGoBack && "#c3c4d3" }}
-          onClick={() => goBack()}
-        >
-          ↪
-        </button>
+
         <button
           style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
           onClick={() => swipe("right")}
         >
           🖤
+        </button>
+      </div>
+      <div className="backButton">
+      <button
+          style={{ backgroundColor: !canGoBack && "#c3c4d3" }}
+          onClick={() => goBack()}
+        >
+          ↪
         </button>
       </div>
       {lastDirection ? (
