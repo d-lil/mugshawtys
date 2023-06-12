@@ -12,6 +12,7 @@ import Inmate from "./Inmate"
 import { Navigate, useParams } from "react-router-dom";
 import "./Profile.css";
 
+
 const Profile = () => {
   // const { username: userParam } = useParams();
 
@@ -102,7 +103,8 @@ const Profile = () => {
                           {/* <Button className='btn-block btn-danger' onClick={() => handleDeleteInmate(inmate.inmateId)}>
                           Delete this Inmate
                           </Button> */}
-                      </Card>              
+                      </Card>   
+                            
                 );
               })}
               
