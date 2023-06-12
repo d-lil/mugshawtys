@@ -11,35 +11,6 @@ import {
 } from "../utils/localStorage";
 import Auth from "../utils/auth";
 
-const db = [
-  {
-    inmateId: '1',
-    inmateName: 'Saoirse',
-    inmateImage: 'https://www.mindfood.com/wp-content/uploads/2018/10/Saoirse-Ronan-M.jpeg',
-    inmateAge: '26',
-  },
-  {
-    inmateId: '2',
-    inmateName: 'Brendan',
-    inmateImage: 'https://imengine.public.prod.dur.navigacloud.com/?uuid=A207CDAC-187A-4AD4-B9FA-AC9E233E43AB&function=original&type=preview',
-    inmateAge: '31',   
-    inmateGender: "male",
-    inmateAbout: "I'm a fun guy",
-  },
-  {
-    inmateId: '3',
-    inmateName: 'Lujan',
-    inmateImage: 'https://pbs.twimg.com/ext_tw_video_thumb/1569885466433929218/pu/img/SZUskyRF83Km_50l.jpg',
-    inmateAge: '25',
-  },
-  {
-    inmateId: "546546",
-    inmateName: 'Pitt',
-    inmateImage: 'https://i.insider.com/536a4500ecad042454b1a77a?width=1018&format=jpeg',
- 
-
-  }
-]
 
 const Card = (newDb) => {
   // const { loading, data } = useQuery(QUERY_ME);
