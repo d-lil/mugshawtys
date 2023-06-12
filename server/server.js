@@ -1,6 +1,7 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+const stripe = require("stripe")('sk_test_51NGXs7FAXUOYrBpZ5fasB4Lxhj9MYTpJWBntzqtyo7s0GRMdIr97dI6d8Is4glrPPUdhTlatB7cMgOBbFFpZPiZP00YCcdimd8');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -53,6 +54,26 @@ if (process.env.NODE_ENV === 'production') {
 //     }
 // )
 
+app.post("/create-payment-intent", async (req, res) => {
+  try {
+    const paymentIntent = await stripe.paymentIntents.create({
+      currency: "usd",
+      amount: 10,
+      automatic_payment_methods: { enabled: true },
+    });
+
+    // Send publishable key and PaymentIntent details to client
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (e) {
+    return res.status(400).send({
+      error: {
+        message: e.message,
+      },
+    });
+  }
+});
 
 
 // app.use(routes);
