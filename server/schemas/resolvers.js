@@ -61,7 +61,7 @@ const resolvers = {
         saveInmate: async (parent, { inmateInfo }, context) => {
             const updateUser = await User.findOneAndUpdate(
               
-                console.log(context.user._id),
+                { _id: context.user._id },
                 { $addToSet: { savedInmates: inmateInfo } },
                 
                 { new: true }
