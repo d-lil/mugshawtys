@@ -98,7 +98,38 @@ const inmateSeed = [
     about: "I have tiger blood coursing through my veins.",
 
 }, 
-
+{
+    username: "lookinforyoungfun",
+    image: "https://ewscripps.brightspotcdn.com/dims4/default/7f443ff/2147483647/strip/true/crop/1920x1080+0+0/resize/1280x720!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2Fa3%2F19%2F55e47a584c26b2e9a7336b68e5bb%2Funtitled-design.jpg",
+    age: "72",
+    gender: "male",
+    email: "x@x.com",
+    about: "Are you a prison guard? Because you've captured my heart.",
+},
+{
+    username: "Hackerman69",
+    image: "https://media.licdn.com/dms/image/C5603AQGrPlsIMOReEg/profile-displayphoto-shrink_800_800/0/1639677532356?e=1692230400&v=beta&t=BtfqDW5L4EQ949RmPKpYlgTGSmEHzteuDUwFDdbx4PY",
+    age: "???",
+    gender: "male",
+    email: "g@x.com",
+    about: "Are you a programming language? Because you've imprisoned my heart with your syntax.",
+},
+{
+    username: "TheEraserWhiz",
+    image: "https://media.licdn.com/dms/image/C4E03AQG-DS-GT0Zuyg/profile-displayphoto-shrink_800_800/0/1550804024665?e=1692230400&v=beta&t=h5BO3omnb32D_pmoUYjGc76b1MTrlyHHmXSfIrPRDWQ",
+    age: "80",
+    gender: "male",
+    email: "d@x.com",
+    about: "Let's delete that.",
+},
+{
+    username: "SyntaxSlayer",
+    image: "https://media.licdn.com/dms/image/C4E03AQH9cJnEo5aICw/profile-displayphoto-shrink_800_800/0/1637712044603?e=1692230400&v=beta&t=h5JkB7Q4f1X2mYYkK3nC7NDkjF2J7OMU32AMCQvTw3g",
+    age: "29",
+    gender: "female",
+    email: "K@x.com",
+    about: "I must be a JavaScript function because I can't resist the urge to return to you.",
+},
 ]
 
 db.once("open", async () => {    
