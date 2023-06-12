@@ -13,7 +13,7 @@
 
 ## Description
 
-Introducing a secure single-page online dating platform that combines the power of collaboration and the MERN stack technology to connect incarcerated individuals or those fascinated by the allure of 'bad boys' and 'bad girls.' This platform features a MongoDB backend, a GraphQL API, and an Express.js and Node.js server with a React front end that implements user authentication. Aditionally, Stripe payment platform.
+Introducing a secure single-page online dating platform that combines the power of collaboration and the MERN stack technology to connect incarcerated individuals or those fascinated by the allure of 'bad boys' and 'bad girls.' This platform features a MongoDB backend, a GraphQL API, and an Express.js and Node.js server with a React front end that implements user authentication. Additionally, Stripe payment platform.
 
 ## Installation
 
