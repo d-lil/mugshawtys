@@ -10,8 +10,7 @@ const SettingsForm = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  // set initial form state
-  //////////////////// temporarily took out preferences from userFormData
+
   const [userFormData, setUserFormData] = useState({ image: '', about: ''});
   // set state for form validation
   const [validated] = useState(false);
@@ -45,7 +44,6 @@ const SettingsForm = () => {
     
     setUserFormData({
       image: '',
-      // preferences: `${data.updateUser.preferences}`,
       about: '',
     });
   };
@@ -73,16 +71,6 @@ const SettingsForm = () => {
             required
           />
         </Form.Group>
-
-        {/* <Form.Group className='mb-3'>
-          <Form.Label htmlFor='preferences' className='title' id='label' ><u><b>Preferences</b></u></Form.Label>
-          <p>Please Select One</p>
-            <select name='preferences' onChange={handleInputChange} value={userFormData.preferences}>
-              <option name='male' value='male'>Felonious Fellas (M)</option>
-              <option name='female' value='female'>Miss Demeanors (F)</option>
-              <option name='both' value='both'>Both</option>
-            </select>
-        </Form.Group> */}
 
         <Form.Group className='mb-3'>
           <Form.Label htmlFor='about' className='title' id='label'><u><b>About</b></u></Form.Label>

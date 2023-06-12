@@ -6,7 +6,7 @@ const stripe = require("stripe")('sk_test_51NGXs7FAXUOYrBpZ5fasB4Lxhj9MYTpJWBntz
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const { authMiddleware } = require('./utils/auth');
-// import { CometChat } from "@cometchat-pro/chat";
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -24,35 +24,6 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-// const appID = "2405963263c8d6a0";
-// const region = "US";
-// const appSetting = new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region).build();
-// CometChat.init(appID, appSetting).then(
-//   () => {
-//     console.log("Initialization completed successfully");
-//     // You can now call login function.
-//   },
-//   error => {
-//     console.log("Initialization failed with error:", error);
-//     // Check the reason for error and take appropriate action.
-//   }
-// );
-
-
-
-// let authKey = "03092ffe83fa55ea6927a72f072c5ddbb8843ffd";
-// var uid = "INMATE1";
-// var name = "INMATE";
-
-// var user = new CometChat.User(uid);
-// user.setName(name);
-// CometChat.createUser(user, authKey).then(
-//     user => {
-//         console.log("user created", user);
-//     },error => {
-//         console.log("error", error);
-//     }
-// )
 
 app.post("/create-payment-intent", async (req, res) => {
   try {
