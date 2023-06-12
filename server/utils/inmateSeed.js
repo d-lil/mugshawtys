@@ -8,6 +8,7 @@ const inmateSeed = [
     age: "24",
     gender: "male",
     email: "x@x.com",
+    about: "Incarcerated, but I promise my heart is still free-range and longing for love.",
 },
 {
     username: "Y",
@@ -15,6 +16,7 @@ const inmateSeed = [
     age: "39",
     gender: "male",
     email: "y@y.com",
+    about: "Don't judge a book by its mugshot!",
 },
 {
     username: "A",
@@ -22,6 +24,7 @@ const inmateSeed = [
     age: "19",
     gender: "female",
     email: "a@a.com",
+    about: "Seeking a partner in crime, both figuratively and literally.",
 },
 {
     username: "B",
@@ -29,7 +32,73 @@ const inmateSeed = [
     age: "22",
     gender: "female",
     email: "b@b.com",
-}
+    about: "Too fabulous for prison, but willing to grace this app with my presence to give others a glimpse of greatness."
+    ,
+}, 
+{
+    username: "C",
+    image: "https://media.11alive.com/assets/WXIA/images/602923643/602923643_1920x1080.jpg",
+    age: "69",
+    gender: "female",
+    email: "h@h.com",
+    about: "Seeking a partner who knows that with age comes mad wisdom and epic storytelling skills.",
+
+}, 
+{
+    username: "Z",
+    image: "https://1.bp.blogspot.com/-hpYvsmI3XBA/TyTCsDFGxKI/AAAAAAAAnF0/r78BZratHto/s1600/mugshots_12.jpg",
+    age: "30",
+    gender: "male",
+    email: "s@s.com",
+    about: "Looking for someone who's not afraid to say, 'You had me at mugshot.",
+
+}, 
+{
+    username: "D",
+    image: "https://www.sickchirpse.com/wp-content/uploads/2014/07/cry1.jpg",
+    age: "25",
+    gender: "male",
+    email: "d@d.com",
+    about: "Incarcerated and emotional.",
+
+}, 
+{
+    username: "E",
+    image: "https://www.thesmokinggun.com/sites/default/files/photos/bartkowiak_heather_mariehorry092310failtoappear06231988.jpg",
+    age: "22",
+    gender: "female",
+    email: "f@f.com",
+    about: "I put the 'fun' in dysfunctional",
+
+}, 
+{
+    username: "F",
+    image: "https://i.pinimg.com/736x/d8/64/41/d864410ffd9957a4f0971e67f6f3de19.jpg",
+    age: "27",
+    gender: "female",
+    email: "g@g.com",
+    about: "My bad choices are hotter than your best decisions.",
+
+}, 
+{
+    username: "G",
+    image: "https://i.pinimg.com/474x/fe/08/c4/fe08c47cd969a5b3e0c71a0f2427b508--funny-mugshots-mug-shots.jpg",
+    age: "28",
+    gender: "male",
+    email: "p@p.com",
+    about: "Very nice guy",
+
+}, 
+{
+    username: "H",
+    image: "https://i.pinimg.com/474x/2e/70/0a/2e700a52f601cd561e7068ad6af9eb29--celebrity-mugshots-aspen-colorado.jpg",
+    age: "57",
+    gender: "male",
+    email: "q@q.com",
+    about: "I have tiger blood coursing through my veins.",
+
+}, 
+
 ]
 
 db.once("open", async () => {    
