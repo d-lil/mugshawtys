@@ -1,11 +1,13 @@
 #root {
+  
+    margin-top: 100px;
     text-align: center;
-    display: flex;
     justify-content: center;
     width: 100vw;
-    min-height: 100vh;
-    overflow: hidden;
-    padding-bottom: 100px;
+    min-height: 50vh;
+    overflow: visible;
+    margin-bottom: 100px; 
+    align-items: center; 
   }
   
   * {
@@ -57,26 +59,35 @@
   }
   
 
+ 
+
   .cardContainer {
-    position: relative;
     justify-content: center;
     align-items: center;
-    display: flex;
     width: 90vw;
     max-width: 260px;
     height: 400px;
   }
   
+  
+
+
   .card {
-    background-color: #fff;
+    background-color: #000000;
     width: 80vw;
     max-width: 260px;
-    height: 400px;
-    box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
-    border-radius: 20px;
+    height: 300px;
+    border-color: #000000;
+    border-width: 3px;
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.30);
+    border-radius: 10px;
     background-size: cover;
-    background-position: center;
+    background-position: center center; /* Center the background image */
+
+   
   }
+  
+  
   
   .cardContent {
     width: 100%;
@@ -84,11 +95,7 @@
   }
   
   .cardName {
-    background: linear-gradient(#d8a283, #4a7394);
-    opacity: 95%;
-    border-radius: 20px;
-    padding: 10px;
-    text-shadow: black 1px 1px 10px;
+    text-shadow: black 1px 1px 3px;
   }
 
   .swipe {
@@ -105,7 +112,7 @@
    }
  
   
-  .card h3 {
+  .card h4 {
     position: absolute;
     bottom: 0;
     margin: 10px;
@@ -122,11 +129,11 @@
   }
   
   .buttons {
-    margin: 20px;
+    /* margin: 20px; */
     
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
   }
   
   @media (max-width: 625px) {
