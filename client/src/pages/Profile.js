@@ -66,7 +66,7 @@ const Profile = () => {
                 style={{ backgroundImage: 'url(' + inmate.inmateImage + ')' }}
                 className='card'
               >
-                <h3 className="cardName"><b>{inmate.inmateName}</b> - {inmate.inmateAge}  </h3>
+                <h4 className="cardName"><b>{inmate.inmateName}</b> - {inmate.inmateAge}  </h4>
               </div>
               </Link>
                 {/* <Button className='btn-block btn-danger' onClick={() => handleDeleteInmate(inmate.inmateId)}>
