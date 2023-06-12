@@ -23,7 +23,6 @@ const db = [
     inmateName: 'Brendan',
     inmateImage: 'https://imengine.public.prod.dur.navigacloud.com/?uuid=A207CDAC-187A-4AD4-B9FA-AC9E233E43AB&function=original&type=preview',
     inmateAge: '31',   
-    inmateAge: '29',
     inmateGender: "male",
     inmateAbout: "I'm a fun guy",
   },
@@ -155,7 +154,6 @@ const Card = (newDb) => {
 
       if (direction === "right") {
         if (storedInmate === null) {
-          console.log("hi");
           const { data } = await saveInmate({
             variables: { inmateInfo: { ...character } },
           });
@@ -165,7 +163,6 @@ const Card = (newDb) => {
         } else if (
           storedInmate.variables.inmateInfo.inmateId !== character.inmateId
         ) {
-          console.log("hi2");
           const { data } = saveInmate({
             variables: { inmateInfo: { ...character } },
           }).then((data) => {
