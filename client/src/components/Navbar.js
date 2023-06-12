@@ -24,7 +24,7 @@ const AppNavbar = () => {
                 <NavDropdown title="🏃‍♂️💨🚓">
                   <NavDropdown.Item as={Link} to='/profile'>Profile</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to='/settings'>Settings</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to='/Payment'>Go Premium</NavDropdown.Item>
+                  <NavDropdown.Item>👷‍♀️🛑👷 </NavDropdown.Item>
                   <NavDropdown.Item onClick={Auth.logout}>Logout</NavDropdown.Item>                  
                 </NavDropdown>
               ) : (

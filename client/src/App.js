@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Inmate from './pages/Inmate';
+import CheckoutForm from './components/CheckoutForm';
 import Navbar from './components/Navbar';
 
 
@@ -68,6 +69,7 @@ function App() {
               path='/inmate/:inmateId'
               element={<Inmate />}
             />
+             <Route path='/CheckoutForm' element={<CheckoutForm />} /> 
             <Route 
               path='*'
               element={<h1 className='display-2'>Wrong page!</h1>}

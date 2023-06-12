@@ -1,4 +1,5 @@
 import {useStripe, useElements, PaymentElement} from '@stripe/react-stripe-js';
+import React from 'react';
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -15,7 +16,7 @@ const CheckoutForm = () => {
     const result = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "https://git.heroku.com/mugshawtys.git",
+        return_url: if_required,
       },
     });
 
