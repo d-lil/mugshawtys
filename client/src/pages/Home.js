@@ -44,7 +44,7 @@ const Home = () => {
           <CardComp data={newDb}/>   // Render CardComp component if user is logged in
           ) : (
             <div>
-              <h1 className="title">Sign up or login to start matching!</h1>   // Encourage user to sign up or log in if not logged in
+              <h1 className="title">Sign up or login to start matching!</h1> 
                 <img src={hearthands} alt='hearthands' className="heart" />
             </div>
               )}
