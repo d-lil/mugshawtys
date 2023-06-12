@@ -14,11 +14,6 @@ import "./Profile.css";
 
 
 const Profile = () => {
-  // const { username: userParam } = useParams();
-
-  // const { loading, error, data } = useQuery(QUERY_USER, {
-  //   variables: { username: "san" },
-  // });
 
   const { loading, data } = useQuery(QUERY_ME);
   console.log(data)
@@ -28,36 +23,12 @@ const Profile = () => {
 
     if (Auth.loggedIn() && Auth.getProfile().data.username) {
       console.log("true");
-      // return <Navigate to="/profile" />;
     }
   }
 
-  // const token = Auth.loggedIn() ? Auth.getToken() : null;
-  // const { loading, data } = useQuery(QUERY_ME);
-  // if (!token) {
-  //   return false;
-  // }
-  // const user = data?.me || {};
-  // console.log(user)
-
-  // const [removeInmate, { error }] = useMutation(REMOVE_INMATE);
-
-  // const handleDeleteInmate = async (_id) => {
-  //   try {
-  //     const { data } = await removeInmate({
-  //       variables: { inmateId },
-  //     });
-
-  //     // upon success, remove inmate's id from localStorage
-  //     removeInmateId(inmateId);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+ 
   console.log(data?.me);
-  // if (!data?.me || !inmateData?.inmates) {
-  //   return <h2>Loading...</h2>;
-  // }
+
   const inmate = [...new Map(data?.me.savedInmates.map((item) => [item.inmateId, item])).values()]
   return (
     <>
@@ -73,7 +44,7 @@ const Profile = () => {
                   <h3 className="cardName"><b>{data?.me.username}</b> - {data?.me.age}  </h3>
                 </div>
               </Card>
-              {/* <p>Preferences - {data?.me.preferences}</p> */}
+
               <br></br>
               <h3 className="label"><u>About Me</u></h3>
               <p>{data?.me.about}</p>

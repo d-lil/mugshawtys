@@ -28,7 +28,7 @@ export const ADD_USER = gql`
 
 `;
 
-// took preferences out for now
+
 export const UPDATE_USER = gql`
     mutation updateUser($image: String, $about: String) {
         updateUser(image: $image, about: $about) {
