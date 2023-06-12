@@ -5,6 +5,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Inmate from './pages/Inmate';
 import Navbar from './components/Navbar';
+
 import { 
   ApolloProvider, 
   ApolloClient, 

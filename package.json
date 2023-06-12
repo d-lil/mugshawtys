@@ -19,6 +19,10 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "cloudinary": "^1.37.1"
+    "cloudinary": "^1.37.1",
+    "nodemon": "^2.0.22",
+    "react-scripts": "^5.0.1",
+    "react-stripe-js": "^1.1.5",
+    "stripe": "^12.9.0"
   }
 }
