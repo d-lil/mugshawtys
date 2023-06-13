@@ -24,22 +24,25 @@ npm i
 ## Usage
 
 ```bash
-npm run seed
 npm run build 
 npm run develop
+npm run seed
 ```
 
 or
 
-[Visit the website:](https://mugshawtys.herokuapp.com/)
+> Visit the website: https://mugshawtys.herokuapp.com/
 
-![Alt text](./assets/mugshaw1.JPG)
+![Home](./assets/home.png)
 Welcome
-![Alt text](./assets/mugshaw2.JPG)
-Login for existing users
-![Alt text](./assets/mugshaw3.JPG)
-Sign-up for new users
-
+![signup](./assets/signup.png)
+Sign-up for new users or Login for existing
+![card](./assets/card.png)
+Page with cards to swipe
+![settings](./assets/settings.png)
+Settings update page
+![profile](./assets/matches.png)
+Profile page that shows matches
 ## License 
   ```
   MIT
